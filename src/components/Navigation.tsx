@@ -27,26 +27,19 @@ export default function Navigation() {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Detect when logo and center links overlap and switch to compact mode
+  // Compact mode when window width is less than 80% of the initial mount width
   useEffect(() => {
-    function checkOverlap() {
-      const logoEl = logoRef.current;
-      const centerEl = centerRef.current;
-      if (!logoEl || !centerEl) return;
-      const logoRect = logoEl.getBoundingClientRect();
-      const centerRect = centerEl.getBoundingClientRect();
-      // Add a small buffer (8px). If logo right touches center left, enable compact mode.
-      setIsCompact(logoRect.right + 8 >= centerRect.left);
+    let initialWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+
+    function checkCompact() {
+      const current = window.innerWidth;
+      setIsCompact(current < initialWidth * 0.75);
     }
 
-    checkOverlap();
-    const ro = new ResizeObserver(checkOverlap);
-    ro.observe(document.documentElement);
-    window.addEventListener('resize', checkOverlap);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', checkOverlap);
-    };
+    // initialize
+    checkCompact();
+    window.addEventListener('resize', checkCompact);
+    return () => window.removeEventListener('resize', checkCompact);
   }, []);
 
   const items = ['About', 'Rooms', 'Locations', 'Restaurant', 'Contact'];
