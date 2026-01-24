@@ -81,67 +81,72 @@ export default function RoomsPage() {
         
 
         {/* 2x2 grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
           {orderedRooms.map((room) => (
-            <div
-              key={room.id}
-              role="button"
-              tabIndex={0}
-              onClick={() => {
-                setActiveIndex(0);
-                setOpenRoom(room.id);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  setActiveIndex(0);
-                  setOpenRoom(room.id);
-                }
-              }}
-              className="room-card group relative aspect-[4/3] overflow-hidden transform-gpu transition-transform duration-300 hover:scale-105"
-            >
-              <div className="absolute inset-0">
-                <Image
-                  src={`/images/rooms/${room.galleryFolder}/1.jpg`}
-                  alt={room.title}
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-300"
-                />
-                <div className="absolute inset-0 card-overlay" />
+            <div key={room.id} className="relative">
+              {/* Title badge outside left-top edge */}
+              <div className="absolute left-45 -top-7 z-30">
+                <span className="font-serif bg-white/95 text-nature-900 px-3 py-1 rounded-lg shadow-md text-md">
+                  {room.title}
+                </span>
               </div>
 
-                <div className="relative z-10 p-4 flex flex-col justify-between h-full room-card-meta">
-                <div>
-                  <h3 className="font-serif text-lg">{room.title}</h3>
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => {
+                  setActiveIndex(0);
+                  setOpenRoom(room.id);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setActiveIndex(0);
+                    setOpenRoom(room.id);
+                  }
+                }}
+                className="room-card group relative aspect-[4/3] overflow-hidden transform-gpu transition-transform duration-300 hover:scale-105"
+              >
+                <div className="absolute inset-0">
+                  <Image
+                    src={`/images/rooms/${room.galleryFolder}/1.jpg`}
+                    alt={room.title}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 card-overlay" />
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {room.amenities.map((a) => (
-                    <span key={a} className="text-[11px] bg-white/95 rounded-full px-2 py-1 text-nature-900">
-                      {a}
-                    </span>
-                  ))}
-                </div>
-                
-                {/* Book Now button (bottom-right on md+, full-width on mobile) */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    const { checkIn, checkOut } = getDefaultDates();
-                    const url = `https://www.booking.com/hotel/lk/isara-guest-polonnaruwa.en-gb.html?checkin=${checkIn}&checkout=${checkOut}`;
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.target = '_blank';
-                    a.rel = 'noopener noreferrer';
-                    a.style.display = 'none';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                  }}
-                  className="relative w-full mt-3 z-20 bg-white/90 text-nature-900 px-3 py-2 rounded-lg text-sm hover:scale-105 transition-transform md:absolute md:right-4 md:bottom-4 md:w-auto md:mt-0"
-                >
-                  Book Now
-                </button>
 
+                <div className="relative z-10 p-4 flex flex-col justify-between h-full room-card-meta">
+                  <div />
+                  <div className="flex flex-wrap gap-2">
+                    {room.amenities.map((a) => (
+                      <span key={a} className="text-[11px] bg-white/95 rounded-full px-2 py-1 text-nature-900">
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Book Now button (bottom-right on md+, full-width on mobile) */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const { checkIn, checkOut } = getDefaultDates();
+                      const url = `https://www.booking.com/hotel/lk/isara-guest-polonnaruwa.en-gb.html?checkin=${checkIn}&checkout=${checkOut}`;
+                      const a = document.createElement('a');
+                      a.href = url;
+                      a.target = '_blank';
+                      a.rel = 'noopener noreferrer';
+                      a.style.display = 'none';
+                      document.body.appendChild(a);
+                      a.click();
+                      document.body.removeChild(a);
+                    }}
+                    className="relative w-full mt-3 z-20 bg-white/90 text-nature-900 px-3 py-2 rounded-lg text-sm hover:scale-105 transition-transform md:absolute md:right-4 md:bottom-4 md:w-auto md:mt-0"
+                  >
+                    Book Now
+                  </button>
+                </div>
               </div>
             </div>
           ))}
