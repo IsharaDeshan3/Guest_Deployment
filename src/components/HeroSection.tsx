@@ -305,7 +305,7 @@ export default function HeroSection() {
       </div>
       
       {/* Main Content Container */}
-      <div className="relative z-10 w-full h-full flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6 md:px-12 lg:px-20 pt-24 lg:pt-0">
+      <div className="relative z-10 w-full h-full flex flex-col lg:flex-row items-center justify-center top-6 lg:justify-between px-6 md:px-12 lg:px-20 pt-24 lg:pt-0">
         {/* Left Side - Hero Text */}
         <div className="flex-1 text-white max-w-2xl text-center lg:text-left">
           <p className="text-nature-100 uppercase tracking-[0.3em] mb-4 text-xs sm:text-sm md:text-base font-light animate-fade-in">

@@ -2,12 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
   const pathname = usePathname();
+
+  const logoRef = useRef<HTMLDivElement | null>(null);
+  const centerRef = useRef<HTMLDivElement | null>(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -22,6 +26,28 @@ export default function Navigation() {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
+
+  // Detect when logo and center links overlap and switch to compact mode
+  useEffect(() => {
+    function checkOverlap() {
+      const logoEl = logoRef.current;
+      const centerEl = centerRef.current;
+      if (!logoEl || !centerEl) return;
+      const logoRect = logoEl.getBoundingClientRect();
+      const centerRect = centerEl.getBoundingClientRect();
+      // Add a small buffer (8px). If logo right touches center left, enable compact mode.
+      setIsCompact(logoRect.right + 8 >= centerRect.left);
+    }
+
+    checkOverlap();
+    const ro = new ResizeObserver(checkOverlap);
+    ro.observe(document.documentElement);
+    window.addEventListener('resize', checkOverlap);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', checkOverlap);
+    };
+  }, []);
 
   const items = ['About', 'Rooms', 'Locations', 'Restaurant', 'Contact'];
 
@@ -51,7 +77,7 @@ export default function Navigation() {
 
         <div className="w-full flex items-center justify-left relative">
           {/* Left: Logo */}
-          <div className={`relative transition-all duration-500 ${isScrolled ? 'mb-2' : 'mb-6'} md:mb-0`}> 
+          <div ref={logoRef} className={`relative transition-all duration-500 ${isScrolled ? 'mb-2' : 'mb-6'} md:mb-0`}> 
             <Link href="/" className="group relative z-10 block">
               <h1 className="font-serif text-3xl md:text-5xl text-white tracking-wide drop-shadow-lg text-left">
                 <span className="italic font-light text-nature-200">Isara</span> Residence
@@ -60,8 +86,8 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Center: Desktop links (centered) */}
-          <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          {/* Center: Desktop links (centered). Hidden when compact (overlap) or on small screens */}
+          <div ref={centerRef} className={`${isCompact ? 'hidden' : 'md:flex'} absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
             <div className={`flex items-center gap-10 ${isScrolled ? 'md:text-xs' : 'md:text-sm'}`}>
               {items.map((item) => (
                 <Link
@@ -75,24 +101,24 @@ export default function Navigation() {
               ))}
             </div>
           </div>
-
-          {/* Right: Mobile toggle */}
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((open) => !open)}
-            className="md:hidden inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-white/90 transition hover:bg-white/20"
-            aria-label="Toggle navigation"
-            aria-expanded={isMenuOpen}
-          >
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
         </div>
+
+        {/* Right: Mobile / compact toggle positioned at the right edge of the nav (flush to viewport) */}
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className={`${isCompact ? 'inline-flex' : 'md:hidden inline-flex'} absolute right-5 top-1/2 transform -translate-y-1/2 z-50 items-center justify-center rounded-none border-0 bg-transparent p-0 text-white/90 transition hover:bg-white/5`}
+          aria-label="Toggle navigation"
+          aria-expanded={isMenuOpen}
+        >
+          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            {isMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
 
         {/* Mobile navigation dropdown */}
         <div className={`w-full md:hidden overflow-hidden transition-all duration-500 ${
