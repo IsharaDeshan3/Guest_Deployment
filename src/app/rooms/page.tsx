@@ -81,7 +81,7 @@ export default function RoomsPage() {
         
 
         {/* 2x2 grid */}
-        <div className="grid grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
           {orderedRooms.map((room) => (
             <div
               key={room.id}
@@ -162,8 +162,8 @@ export default function RoomsPage() {
               Close
             </button>
 
-            <div className="bg-white/5 p-6 rounded-2xl backdrop-blur shadow-lg">
-              <h2 className="text-white font-serif text-2xl mb-4">
+            <div className="bg-white/5 p-4 sm:p-6 rounded-2xl backdrop-blur shadow-lg">
+              <h2 className="text-white font-serif text-xl sm:text-2xl mb-4">
                 {openRoomData?.title || "Gallery"}
               </h2>
 
@@ -174,10 +174,10 @@ export default function RoomsPage() {
                   onTouchStart={handleTouchStart}
                   onTouchEnd={handleTouchEnd}
                 >
-                  <div className="mx-auto flex items-center justify-center gap-6 px-6 py-6">
+                  <div className="mx-auto flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 px-4 md:px-6 py-4 md:py-6">
                     {/* Left decorative preview */}
                     {galleryImages.length > 1 && (
-                      <div className="pointer-events-none relative h-[60vh] w-[22%] overflow-hidden rounded-xl shadow-2xl transform-gpu transition-all duration-700">
+                      <div className="pointer-events-none relative hidden md:block h-[60vh] w-[22%] overflow-hidden rounded-xl shadow-2xl transform-gpu transition-all duration-700">
                         <Image
                           src={galleryImages[(activeIndex - 1 + galleryImages.length) % galleryImages.length]}
                           alt="Previous room view"
@@ -189,7 +189,7 @@ export default function RoomsPage() {
                     )}
 
                     {/* Main image */}
-                    <div className="relative h-[60vh] w-[44%] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-black/30 transform-gpu transition-all duration-700">
+                    <div className="relative h-[45vh] sm:h-[55vh] md:h-[60vh] w-full md:w-[44%] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-black/30 transform-gpu transition-all duration-700">
                       <Image
                         src={galleryImages[activeIndex]}
                         alt={openRoomData?.title ?? "Room"}
@@ -199,14 +199,14 @@ export default function RoomsPage() {
                         priority
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/20 pointer-events-none" />
-                      <div className="absolute left-4 bottom-4 z-10 bg-black/40 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm">
+                      <div className="absolute left-4 bottom-4 z-10 bg-black/40 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-xs sm:text-sm">
                         {openRoomData?.title} — {activeIndex + 1}/{galleryImages.length}
                       </div>
                     </div>
 
                     {/* Right decorative preview */}
                     {galleryImages.length > 1 && (
-                      <div className="pointer-events-none relative h-[60vh] w-[22%] overflow-hidden rounded-xl shadow-2xl transform-gpu transition-all duration-700">
+                      <div className="pointer-events-none relative hidden md:block h-[60vh] w-[22%] overflow-hidden rounded-xl shadow-2xl transform-gpu transition-all duration-700">
                         <Image
                           src={galleryImages[(activeIndex + 1) % galleryImages.length]}
                           alt="Next room view"
@@ -225,26 +225,26 @@ export default function RoomsPage() {
                         onClick={() =>
                           setActiveIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
                         }
-                        className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-nature-900 shadow-2xl transition hover:scale-105"
+                        className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-nature-900 shadow-2xl transition hover:scale-105"
                         aria-label="Previous image"
                       >
                         ‹
                       </button>
                       <button
                         onClick={() => setActiveIndex((prev) => (prev + 1) % galleryImages.length)}
-                        className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-nature-900 shadow-2xl transition hover:scale-105"
+                        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-nature-900 shadow-2xl transition hover:scale-105"
                         aria-label="Next image"
                       >
                         ›
                       </button>
 
-                      <div className="absolute left-1/2 bottom-6 -translate-x-1/2 flex gap-2">
+                      <div className="absolute left-1/2 bottom-4 md:bottom-6 -translate-x-1/2 flex gap-2">
                         {galleryImages.map((_, i) => (
                           <button
                             key={i}
                             aria-label={`Go to image ${i + 1}`}
                             onClick={() => setActiveIndex(i)}
-                            className={`h-2 w-8 rounded-full transition-all ${i === activeIndex ? 'bg-white/90 w-10' : 'bg-white/30'}`}
+                            className={`h-2 w-6 sm:w-8 rounded-full transition-all ${i === activeIndex ? 'bg-white/90 w-8 sm:w-10' : 'bg-white/30'}`}
                           />
                         ))}
                       </div>

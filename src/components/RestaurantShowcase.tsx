@@ -60,9 +60,31 @@ export default function RestaurantShowcase() {
   const [mounted, setMounted] = useState(false);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [radius, setRadius] = useState(280);
+  const [itemRadius, setItemRadius] = useState(100);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const updateSizes = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setRadius(170);
+        setItemRadius(70);
+      } else if (width < 768) {
+        setRadius(210);
+        setItemRadius(85);
+      } else {
+        setRadius(280);
+        setItemRadius(100);
+      }
+    };
+
+    updateSizes();
+    window.addEventListener("resize", updateSizes);
+    return () => window.removeEventListener("resize", updateSizes);
   }, []);
 
   useEffect(() => {
@@ -83,14 +105,11 @@ export default function RestaurantShowcase() {
     return index * anglePerItem;
   };
 
-  const radius = 280; // px
-  const itemRadius = 100; // px (size of each food item)
-
   return (
-    <div className="relative w-full max-w-4xl mx-auto h-[700px] md:h-[750px] flex items-center justify-center">
+    <div className="relative w-full max-w-4xl mx-auto h-[520px] sm:h-[620px] md:h-[720px] flex items-center justify-center">
       {/* Central Table/Circle */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-80 h-80">
+        <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80">
           {/* Inner Circle - Table */}
           <motion.div
             className="absolute inset-0 rounded-full bg-gradient-to-br from-nature-700/80 to-nature-900/80 border-4 border-nature-500/50 backdrop-blur-md shadow-2xl flex items-center justify-center"
@@ -141,11 +160,12 @@ export default function RestaurantShowcase() {
                 >
                   {/* Food Item Card */}
                   <motion.div
-                    className={`relative w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-full overflow-hidden cursor-pointer group transition-all duration-300 ${
+                    className={`relative rounded-full overflow-hidden cursor-pointer group transition-all duration-300 ${
                       isActive
                         ? "ring-4 ring-nature-300 shadow-2xl"
                         : "ring-2 ring-nature-500/30 shadow-lg hover:ring-nature-400"
                     }`}
+                    style={{ width: itemRadius, height: itemRadius }}
                     initial={{ scale: isActive ? 1.2 : 1 }}
                     animate={{ scale: isActive ? 1.2 : 1 }}
                     transition={{ duration: 0.3 }}

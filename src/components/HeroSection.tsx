@@ -71,7 +71,7 @@ function QuickBookCard({ roomType, price, capacity, image, isExpanded, isAnyExpa
       />
       
       <div 
-        className={`relative w-[500px] max-w-full overflow-hidden rounded-[32px] backdrop-blur-2xl bg-white/20 border-2 border-white/50 shadow-2xl transition-all duration-500 transform
+        className={`relative w-[92vw] sm:w-[500px] max-w-full overflow-hidden rounded-[32px] backdrop-blur-2xl bg-white/20 border-2 border-white/50 shadow-2xl transition-all duration-500 transform
                    ${isExpanded ? 'scale-100 opacity-100 translate-x-0' : 'scale-95 opacity-0 translate-x-20'}`}
       >
         {/* Background Image with Overlay */}
@@ -103,7 +103,7 @@ function QuickBookCard({ roomType, price, capacity, image, isExpanded, isAnyExpa
 
           {/* Date Selection */}
           <div className="space-y-4 mb-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-white/90 text-xs uppercase tracking-wider mb-2 block font-bold">Check-in</label>
                 <input 
@@ -305,23 +305,23 @@ export default function HeroSection() {
       </div>
       
       {/* Main Content Container */}
-      <div className="relative z-10 w-full h-full flex items-center justify-between px-8 md:px-16 lg:px-20">
+      <div className="relative z-10 w-full h-full flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6 md:px-12 lg:px-20 pt-24 lg:pt-0">
         {/* Left Side - Hero Text */}
-        <div className="flex-1 text-white max-w-2xl">
-          <p className="text-nature-100 uppercase tracking-[0.3em] mb-4 text-sm md:text-base font-light animate-fade-in">
+        <div className="flex-1 text-white max-w-2xl text-center lg:text-left">
+          <p className="text-nature-100 uppercase tracking-[0.3em] mb-4 text-xs sm:text-sm md:text-base font-light animate-fade-in">
             Polonnaruwa, Sri Lanka
           </p>
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight drop-shadow-2xl">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight drop-shadow-2xl">
             Experience <br/> <span className="italic text-nature-200">Serenity</span>
           </h1>
-          <p className="max-w-xl text-nature-50/90 text-base md:text-lg mb-8 font-light leading-relaxed drop-shadow-lg">
+          <p className="max-w-xl mx-auto lg:mx-0 text-nature-50/90 text-sm sm:text-base md:text-lg mb-8 font-light leading-relaxed drop-shadow-lg">
             A peaceful sanctuary nestled in the heart of the ancient city, 
             where history meets the calm waters of Parakrama Samudraya.
           </p>
           <Link 
             href="/rooms" 
-            className="inline-block border-2 border-white/40 bg-white/10 backdrop-blur-md px-10 py-4 
-                       uppercase tracking-widest text-sm hover:bg-white hover:text-nature-900 hover:border-white
+            className="inline-block border-2 border-white/40 bg-white/10 backdrop-blur-md px-8 sm:px-10 py-3 sm:py-4 
+                       uppercase tracking-widest text-[11px] sm:text-sm hover:bg-white hover:text-nature-900 hover:border-white
                        transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-white/20"
           >
             View All Rooms

@@ -22,7 +22,7 @@ const AboutSection = () => {
     // Not stricly needed if we want full bleed, but nice for integration.
 
     return (
-    <section ref={containerRef} className="relative py-32 px-6 md:px-20 overflow-hidden bg-nature-900">
+    <section ref={containerRef} className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden bg-nature-900">
       
       {/* Aerial Map Simulation Background */}
       <AerialMapBackground />
@@ -42,7 +42,7 @@ const AboutSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl transition-transform duration-700 ease-out group-hover:scale-[1.01]">
+            <div className="relative h-[360px] sm:h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl transition-transform duration-700 ease-out group-hover:scale-[1.01]">
                <div className="absolute inset-0 bg-nature-900">
                   <Image 
                     src="/about-sec-lnd.jpg" 
@@ -74,7 +74,7 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             {/* The Glassmorphism Card - Dark Mode Version */}
-            <div className="relative bg-nature-900/40 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-2xl shadow-2xl lg:-ml-24 animate-float">
+            <div className="relative bg-nature-900/40 backdrop-blur-md border border-white/10 p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl lg:-ml-24 animate-float">
               
               {/* Header */}
               <div className="space-y-6">
