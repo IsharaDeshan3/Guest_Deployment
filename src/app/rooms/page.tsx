@@ -97,7 +97,7 @@ export default function RoomsPage() {
                   setOpenRoom(room.id);
                 }
               }}
-              className="room-card group relative aspect-[4/3] overflow-hidden transition"
+              className="room-card group relative aspect-[4/3] overflow-hidden transform-gpu transition-transform duration-300 hover:scale-105"
             >
               <div className="absolute inset-0">
                 <Image
@@ -105,7 +105,7 @@ export default function RoomsPage() {
                   alt={room.title}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover grayscale group-hover:grayscale-0 transition"
+                  className="object-cover transition-transform duration-300"
                 />
                 <div className="absolute inset-0 card-overlay" />
               </div>
@@ -122,7 +122,7 @@ export default function RoomsPage() {
                   ))}
                 </div>
                 
-                {/* Book Now button (bottom-right) - uses same default date logic as Hero quick book */}
+                {/* Book Now button (bottom-right on md+, full-width on mobile) */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -137,7 +137,7 @@ export default function RoomsPage() {
                     a.click();
                     document.body.removeChild(a);
                   }}
-                  className="absolute right-4 bottom-4 z-20 bg-white/90 text-nature-900 px-3 py-2 rounded-lg text-sm hover:scale-105 transition-transform"
+                  className="relative w-full mt-3 z-20 bg-white/90 text-nature-900 px-3 py-2 rounded-lg text-sm hover:scale-105 transition-transform md:absolute md:right-4 md:bottom-4 md:w-auto md:mt-0"
                 >
                   Book Now
                 </button>

@@ -60,8 +60,8 @@ export default function Footer() {
               </h3>
               <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-nature-200/90">
                 {[
-                  { label: "About", href: "/#about" },
-                  { label: "Rooms", href: "/#rooms" },
+                  { label: "About", href: "/about" },
+                  { label: "Rooms", href: "/rooms" },
                   { label: "Locations", href: "/locations" },
                   { label: "Restaurant", href: "/restaurant" },
                   { label: "Contact", href: "/contact" },
