@@ -64,7 +64,7 @@ export default function RoomsPage() {
   return (
     <main
       className="relative min-h-screen text-nature-900 font-sans selection:bg-nature-300 selection:text-nature-900"
-      style={{ border: "3px solid #2563EB" }}
+      style={{ border: "3px solid #004e07" }}
     >
 
       {/* Background image (blurred) + blue tint overlay */}
