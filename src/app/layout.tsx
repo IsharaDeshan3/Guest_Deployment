@@ -23,6 +23,12 @@ export const metadata: Metadata = {
   description: "Experience serenity at Isara Guest House, located near the ancient city of Polonnaruwa, Sri Lanka.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

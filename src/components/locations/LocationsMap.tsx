@@ -51,8 +51,8 @@ export default function LocationsMap() {
   return (
     <>
       <div className="rounded-3xl overflow-hidden shadow-2xl border border-black/10 flex justify-center">
-        <div className={`${selected ? 'filter blur-sm' : ''} w-full flex justify-center`}> 
-          <div className="w-full md:w-[90%] mx-auto aspect-video">
+        <div className={`${selected ? "blur-sm" : ""} w-full flex justify-center`}>
+          <div className="w-full tablet:w-[90%] mx-auto aspect-[4/5] sm:aspect-video">
             <MapContainer
               center={center}
               zoom={15}

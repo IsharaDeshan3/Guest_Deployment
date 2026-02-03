@@ -70,8 +70,11 @@ export default function RestaurantShowcase() {
   useEffect(() => {
     const updateSizes = () => {
       const width = window.innerWidth;
-      if (width < 640) {
-        setRadius(170);
+      if (width < 375) {
+        setRadius(120);
+        setItemRadius(56);
+      } else if (width < 640) {
+        setRadius(160);
         setItemRadius(70);
       } else if (width < 768) {
         setRadius(210);
@@ -106,10 +109,10 @@ export default function RestaurantShowcase() {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto h-[520px] sm:h-[620px] md:h-[720px] flex items-center justify-center">
+    <div className="relative w-full max-w-4xl mx-auto h-[440px] mobS:h-[480px] mobL:h-[520px] sm:h-[620px] md:h-[720px] flex items-center justify-center">
       {/* Central Table/Circle */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80">
+        <div className="relative w-48 h-48 mobL:w-56 mobL:h-56 sm:w-72 sm:h-72 md:w-80 md:h-80">
           {/* Inner Circle - Table */}
           <motion.div
             className="absolute inset-0 rounded-full bg-gradient-to-br from-nature-700/80 to-nature-900/80 border-4 border-nature-500/50 backdrop-blur-md shadow-2xl flex items-center justify-center"
@@ -175,7 +178,7 @@ export default function RestaurantShowcase() {
                       alt={item.name}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      sizes="140px"
+                      sizes="(max-width: 374px) 112px, (max-width: 639px) 140px, 200px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-nature-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </motion.div>

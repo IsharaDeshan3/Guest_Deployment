@@ -195,7 +195,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-[3]">
           <div className="absolute top-0 left-0 w-96 h-96 bg-nature-400/10 rounded-full blur-3xl animate-float"></div>
           <div
-            className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-nature-500/10 rounded-full blur-3xl animate-float"
+            className="absolute bottom-0 right-0 w-80 h-80 mobL:w-[500px] mobL:h-[500px] bg-nature-500/10 rounded-full blur-3xl animate-float"
             style={{ animationDelay: "2s" }}
           ></div>
           <div
@@ -227,7 +227,7 @@ export default function ContactPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 py-32 relative z-20">
+      <section className="min-h-screen flex items-center justify-center px-6 py-24 md:py-32 relative z-20">
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Header Section */}
           <div className="text-center mb-20">
@@ -241,7 +241,7 @@ export default function ContactPage() {
             </div>
 
             <h1
-              className="font-serif text-6xl md:text-7xl lg:text-8xl text-nature-50 leading-tight mb-6 animate-fadeIn"
+              className="font-serif text-4xl mobS:text-5xl tablet:text-6xl laptop:text-7xl text-nature-50 leading-tight mb-6 animate-fadeIn"
               style={{ animationDelay: "0.1s" }}
             >
               We&apos;d Love to
@@ -251,7 +251,7 @@ export default function ContactPage() {
             </h1>
 
             <p
-              className="text-nature-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed animate-fadeIn"
+              className="text-nature-200 text-base mobL:text-lg tablet:text-xl max-w-2xl mx-auto leading-relaxed animate-fadeIn"
               style={{ animationDelay: "0.2s" }}
             >
               Whether you&apos;re planning your stay or just have a question,
@@ -348,7 +348,7 @@ export default function ContactPage() {
                     We typically respond within 24 hours
                   </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
                     {/* Name Input */}
                     <div className="group">
                       <label className="block text-nature-200 font-medium mb-2 text-sm uppercase tracking-wider">
@@ -403,7 +403,7 @@ export default function ContactPage() {
                     {/* Submit Button */}
                     <button
                       type="submit"
-                      className="group w-full md:w-auto px-10 py-5 rounded-xl bg-gradient-to-r from-nature-600 to-nature-700 hover:from-nature-500 hover:to-nature-600 text-nature-50 font-semibold uppercase tracking-wider transition-all duration-300 shadow-xl shadow-nature-600/30 hover:shadow-2xl hover:shadow-nature-500/40 hover:scale-[1.02] flex items-center justify-center space-x-3 relative overflow-hidden"
+                      className="group tap-target w-full md:w-auto px-6 py-4 tablet:px-10 tablet:py-5 rounded-xl bg-gradient-to-r from-nature-600 to-nature-700 hover:from-nature-500 hover:to-nature-600 text-nature-50 font-semibold uppercase tracking-wider transition-all duration-300 shadow-xl shadow-nature-600/30 hover:shadow-2xl hover:shadow-nature-500/40 hover:scale-[1.02] flex items-center justify-center space-x-3 relative overflow-hidden"
                     >
                       <span className="relative z-10">Send Message</span>
                       <Send className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
@@ -444,28 +444,28 @@ export default function ContactPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="relative z-20 py-32 px-6">
+      <section className="relative z-20 py-16 mobL:py-20 tablet:py-24 laptop:py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-5xl md:text-6xl text-nature-50 mb-6">
+          <div className="text-center mb-10 tablet:mb-16">
+            <h2 className="font-serif text-3xl mobS:text-4xl tablet:text-5xl laptop:text-6xl text-nature-50 mb-6">
               Why Choose{" "}
               <span className="bg-gradient-to-r from-nature-300 to-nature-500 bg-clip-text text-transparent">
                 Isara Residence
               </span>
             </h2>
-            <p className="text-nature-200 text-lg max-w-2xl mx-auto">
+            <p className="text-nature-200 text-base mobL:text-lg max-w-2xl mx-auto">
               Experience the perfect blend of comfort, culture, and hospitality
               in the heart of ancient Polonnaruwa
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
             {whyChooseUs.map((item, index) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.title}
-                  className="group p-8 rounded-2xl bg-nature-800/30 backdrop-blur-sm border border-nature-600/20 hover:border-nature-500/40 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-nature-500/10"
+                  className="group p-6 tablet:p-8 rounded-2xl bg-nature-800/30 backdrop-blur-sm border border-nature-600/20 hover:border-nature-500/40 transition-all duration-500 tablet:hover:scale-[1.03] hover:shadow-2xl hover:shadow-nature-500/10"
                   style={{
                     animationDelay: `${index * 0.1}s`,
                     animation: "fadeInUp 0.8s ease-out both",
@@ -491,26 +491,26 @@ export default function ContactPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative z-20 py-32 px-6">
+      <section className="relative z-20 py-16 mobL:py-20 tablet:py-24 laptop:py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-5xl md:text-6xl text-nature-50 mb-6">
+          <div className="text-center mb-10 tablet:mb-16">
+            <h2 className="font-serif text-3xl mobS:text-4xl tablet:text-5xl laptop:text-6xl text-nature-50 mb-6">
               What Our{" "}
               <span className="bg-gradient-to-r from-nature-300 to-nature-500 bg-clip-text text-transparent">
                 Guests Say
               </span>
             </h2>
-            <p className="text-nature-200 text-lg max-w-2xl mx-auto">
+            <p className="text-nature-200 text-base mobL:text-lg max-w-2xl mx-auto">
               Don&apos;t just take our word for it - hear from travelers
               who&apos;ve experienced Isara firsthand
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.name}
-                className="p-8 rounded-2xl bg-nature-800/30 backdrop-blur-sm border border-nature-600/20 hover:border-nature-500/40 transition-all duration-500 hover:scale-[1.03]"
+                className="p-6 tablet:p-8 rounded-2xl bg-nature-800/30 backdrop-blur-sm border border-nature-600/20 hover:border-nature-500/40 transition-all duration-500 tablet:hover:scale-[1.03]"
                 style={{
                   animationDelay: `${index * 0.15}s`,
                   animation: "fadeInUp 0.8s ease-out both",
@@ -542,16 +542,16 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative z-20 py-32 px-6">
+      <section className="relative z-20 py-16 mobL:py-20 tablet:py-24 laptop:py-32 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-5xl md:text-6xl text-nature-50 mb-6">
+          <div className="text-center mb-10 tablet:mb-16">
+            <h2 className="font-serif text-3xl mobS:text-4xl tablet:text-5xl laptop:text-6xl text-nature-50 mb-6">
               Frequently Asked{" "}
               <span className="bg-gradient-to-r from-nature-300 to-nature-500 bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
-            <p className="text-nature-200 text-lg">
+            <p className="text-nature-200 text-base mobL:text-lg">
               Quick answers to common questions about your stay
             </p>
           </div>
@@ -577,7 +577,7 @@ export default function ContactPage() {
             ].map((faq, index) => (
               <div
                 key={index}
-                className="p-8 rounded-2xl bg-nature-800/30 backdrop-blur-sm border border-nature-600/20 hover:border-nature-500/40 transition-all duration-300"
+                className="p-6 tablet:p-8 rounded-2xl bg-nature-800/30 backdrop-blur-sm border border-nature-600/20 hover:border-nature-500/40 transition-all duration-300"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   animation: "fadeInUp 0.8s ease-out both",
@@ -594,13 +594,13 @@ export default function ContactPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative z-20 py-32 px-6">
+      <section className="relative z-20 py-16 mobL:py-20 tablet:py-24 laptop:py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="p-12 md:p-16 rounded-3xl bg-gradient-to-br from-nature-700/30 to-nature-800/30 backdrop-blur-xl border border-nature-500/30 shadow-2xl">
-            <h2 className="font-serif text-4xl md:text-5xl text-nature-50 mb-6">
+          <div className="p-8 mobL:p-10 tablet:p-12 laptop:p-16 rounded-3xl bg-gradient-to-br from-nature-700/30 to-nature-800/30 backdrop-blur-xl border border-nature-500/30 shadow-2xl">
+            <h2 className="font-serif text-3xl mobS:text-4xl tablet:text-5xl text-nature-50 mb-6">
               Ready to Experience Polonnaruwa?
             </h2>
-            <p className="text-nature-200 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-nature-200 text-base mobL:text-lg mb-8 max-w-2xl mx-auto">
               Book your stay at Isara Residence today and discover the magic of
               Sri Lanka&apos;s ancient kingdom
             </p>
@@ -609,13 +609,13 @@ export default function ContactPage() {
                 href="https://wa.me/+94714723538"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 rounded-xl bg-gradient-to-r from-nature-500 to-nature-600 hover:from-nature-400 hover:to-nature-500 text-nature-50 font-semibold uppercase tracking-wider transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+                className="tap-target inline-flex items-center justify-center px-6 py-4 tablet:px-10 tablet:py-5 rounded-xl bg-gradient-to-r from-nature-500 to-nature-600 hover:from-nature-400 hover:to-nature-500 text-nature-50 font-semibold uppercase tracking-wider transition-all duration-300 shadow-xl hover:shadow-2xl tablet:hover:scale-105"
               >
                 Book Now
               </a>
               <a
                 href="#contact-form"
-                className="px-10 py-5 rounded-xl bg-nature-800/40 backdrop-blur-sm border border-nature-500/40 hover:border-nature-400/60 text-nature-100 font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105"
+                className="tap-target inline-flex items-center justify-center px-6 py-4 tablet:px-10 tablet:py-5 rounded-xl bg-nature-800/40 backdrop-blur-sm border border-nature-500/40 hover:border-nature-400/60 text-nature-100 font-semibold uppercase tracking-wider transition-all duration-300 tablet:hover:scale-105"
               >
                 Learn More
               </a>

@@ -83,21 +83,21 @@ const AboutSection = () => {
                     <span className="text-nature-300 uppercase tracking-widest text-sm font-medium">About Isara</span>
                 </div>
                 
-                <h2 className="font-serif text-4xl md:text-5xl text-nature-50 leading-tight">
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-nature-50 leading-tight">
                   Where Ancient History Meets <span className="italic text-nature-300">Modern Tranquility</span>
                 </h2>
 
-                <p className="text-nature-200 leading-relaxed text-lg">
+                <p className="text-nature-200 leading-relaxed text-base sm:text-lg max-w-prose">
                   Nestled just minutes from the UNESCO World Heritage sites of Polonnaruwa, Isara Residence offers more than just a stay—it offers a pause. 
                 </p>
 
-                <p className="text-nature-300 leading-relaxed font-light">
+                <p className="text-nature-300 leading-relaxed font-light text-sm sm:text-base max-w-prose">
                   Wake up to the gentle rustling of palm leaves and the morning chorus of birds. Our residence is designed to be your sanctuary after a day of exploring the Ancient City, providing a seamless blend of Sri Lankan hospitality and contemporary comfort.
                 </p>
 
                 {/* Signature / CTA */}
                 <div className="pt-6">
-                   <button className="group flex items-center gap-3 text-nature-100 font-medium hover:text-white transition-colors">
+                   <button className="group flex items-center gap-3 text-nature-100 font-medium hover:text-white transition-colors tap-target">
                       <span>Explore Our Story</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1 transition-transform">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />

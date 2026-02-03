@@ -110,7 +110,7 @@ function QuickBookCard({ roomType, price, capacity, image, isExpanded, isAnyExpa
                   type="date"
                   value={checkInDate}
                   onChange={(e) => setCheckInDate(e.target.value)}
-                  className="w-full bg-white/15 border border-white/30 rounded-xl px-4 py-3 text-white text-sm
+                  className="w-full bg-white/15 border border-white/30 rounded-xl px-4 py-3 text-white text-base
                             focus:bg-white/25 focus:border-white/60 focus:outline-none transition-all
                             hover:bg-white/20"
                 />
@@ -121,7 +121,7 @@ function QuickBookCard({ roomType, price, capacity, image, isExpanded, isAnyExpa
                   type="date"
                   value={checkOutDate}
                   onChange={(e) => setCheckOutDate(e.target.value)}
-                  className="w-full bg-white/15 border border-white/30 rounded-xl px-4 py-3 text-white text-sm
+                  className="w-full bg-white/15 border border-white/30 rounded-xl px-4 py-3 text-white text-base
                             focus:bg-white/25 focus:border-white/60 focus:outline-none transition-all
                             hover:bg-white/20"
                 />
@@ -161,6 +161,7 @@ function QuickBookCard({ roomType, price, capacity, image, isExpanded, isAnyExpa
         className={`group relative overflow-hidden transition-all duration-500 cursor-pointer
                    bg-white/10 border border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]
                    rounded-tl-[32px] rounded-br-[32px] rounded-tr-lg rounded-bl-lg
+                   min-h-[64px]
                    ${isExpanded ? 'opacity-0 pointer-events-none absolute' : 'opacity-100 relative'}
                    ${!isExpanded && isAnyExpanded ? 'opacity-30 blur-[1px] scale-95 grayscale' : 'hover:bg-white/15 hover:border-white/30 hover:scale-[1.02] hover:shadow-xl'}
                    `}
@@ -240,7 +241,7 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden"
+      className="relative min-h-[80vh] md:h-screen w-full flex items-center justify-center overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -311,7 +312,7 @@ export default function HeroSection() {
           <p className="text-nature-100 uppercase tracking-[0.3em] mb-4 text-xs sm:text-sm md:text-base font-light animate-fade-in">
             Polonnaruwa, Sri Lanka
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight drop-shadow-2xl">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-6 leading-tight drop-shadow-2xl">
             Experience <br/> <span className="italic text-nature-200">Serenity</span>
           </h1>
           <p className="max-w-xl mx-auto lg:mx-0 text-nature-50/90 text-sm sm:text-base md:text-lg mb-8 font-light leading-relaxed drop-shadow-lg">
@@ -320,7 +321,7 @@ export default function HeroSection() {
           </p>
           <Link 
             href="/rooms" 
-            className="inline-block border-2 border-white/40 bg-white/10 backdrop-blur-md px-8 sm:px-10 py-3 sm:py-4 
+            className="inline-block border-2 border-white/40 bg-white/10 backdrop-blur-md px-8 sm:px-10 py-3 sm:py-4 tap-target mx-auto lg:mx-0
                        uppercase tracking-widest text-[11px] sm:text-sm hover:bg-white hover:text-nature-900 hover:border-white
                        transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-white/20"
           >
@@ -329,8 +330,8 @@ export default function HeroSection() {
         </div>
 
         {/* Right Side - Quick Booking Cards */}
-        <div className="hidden lg:flex flex-col gap-4 w-80 xl:w-96">
-          <h3 className="text-white/90 text-sm uppercase tracking-[0.2em] mb-2 font-light">Quick Book</h3>
+        <div className="flex flex-col gap-4 w-full max-w-md mt-10 lg:mt-0 lg:w-80 xl:w-96">
+          <h3 className="text-white/90 text-sm uppercase tracking-[0.2em] mb-2 font-light text-center lg:text-left">Quick Book</h3>
           
           {/* Room Cards */}
           <QuickBookCard 

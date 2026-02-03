@@ -64,7 +64,6 @@ export default function RoomsPage() {
   return (
     <main
       className="relative min-h-screen text-nature-900 font-sans selection:bg-nature-300 selection:text-nature-900"
-      style={{ border: "3px solid #004e07" }}
     >
 
       {/* Background image (blurred) + blue tint overlay */}
@@ -84,9 +83,9 @@ export default function RoomsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
           {orderedRooms.map((room) => (
             <div key={room.id} className="relative">
-              {/* Title badge outside left-top edge */}
-              <div className="absolute left-45 -top-7 z-30">
-                <span className="font-serif bg-white/95 text-nature-900 px-3 py-1 rounded-lg shadow-md text-md">
+              {/* Title badge */}
+              <div className="absolute left-4 top-4 z-30">
+                <span className="font-serif bg-white/95 text-nature-900 px-3 py-1 rounded-lg shadow-md text-sm sm:text-base">
                   {room.title}
                 </span>
               </div>
@@ -104,7 +103,7 @@ export default function RoomsPage() {
                     setOpenRoom(room.id);
                   }
                 }}
-                className="room-card group relative aspect-[4/3] overflow-hidden transform-gpu transition-transform duration-300 hover:scale-105"
+                className="room-card group relative aspect-[4/3] overflow-hidden transform-gpu transition-transform duration-300 md:hover:scale-105"
               >
                 <div className="absolute inset-0">
                   <Image
@@ -142,7 +141,7 @@ export default function RoomsPage() {
                       a.click();
                       document.body.removeChild(a);
                     }}
-                    className="relative w-full mt-3 z-20 bg-white/90 text-nature-900 px-3 py-2 rounded-lg text-sm hover:scale-105 transition-transform md:absolute md:right-4 md:bottom-4 md:w-auto md:mt-0"
+                    className="relative w-full mt-3 z-20 bg-white/90 text-nature-900 px-4 py-3 rounded-lg text-sm tap-target hover:scale-105 transition-transform md:absolute md:right-4 md:bottom-4 md:w-auto md:mt-0"
                   >
                     Book Now
                   </button>
@@ -155,14 +154,23 @@ export default function RoomsPage() {
 
       {/* Modal Gallery */}
       {openRoom && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="relative max-w-7xl w-full mx-4">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+          onClick={() => {
+            setActiveIndex(0);
+            setOpenRoom(null);
+          }}
+        >
+          <div
+            className="relative max-w-7xl w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={() => {
                 setActiveIndex(0);
                 setOpenRoom(null);
               }}
-              className="absolute right-3 top-3 z-20 rounded-full bg-white/90 px-3 py-1 text-sm"
+              className="absolute right-3 top-3 z-20 rounded-full bg-white/90 px-3 py-2 text-sm tap-target"
             >
               Close
             </button>

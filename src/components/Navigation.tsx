@@ -7,11 +7,9 @@ import { useState, useEffect, useRef } from "react";
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCompact, setIsCompact] = useState(false);
   const pathname = usePathname();
 
-  const logoRef = useRef<HTMLDivElement | null>(null);
-  const centerRef = useRef<HTMLDivElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -27,20 +25,17 @@ export default function Navigation() {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  // Compact mode when window width is less than 80% of the initial mount width
+  // Close on Escape when drawer is open
   useEffect(() => {
-    let initialWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
-
-    function checkCompact() {
-      const current = window.innerWidth;
-      setIsCompact(current < initialWidth * 0.75);
-    }
-
-    // initialize
-    checkCompact();
-    window.addEventListener('resize', checkCompact);
-    return () => window.removeEventListener('resize', checkCompact);
-  }, []);
+    if (!isMenuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isMenuOpen]);
 
   const items = ['About', 'Rooms', 'Locations', 'Restaurant', 'Contact'];
 
@@ -66,11 +61,11 @@ export default function Navigation() {
       ? 'bg-gradient-to-b from-black/80 backdrop-blur-[3px] py-2'
       : 'bg-gradient-to-b from-black/80 to-transparent backdrop-blur-[2px] py-6'
       }`}>
-      <div className="max-w-8xl mx-auto px-6">
+      <div className="max-w-8xl mx-auto px-6 relative">
 
         <div className="w-full flex items-center justify-left relative">
           {/* Left: Logo */}
-          <div ref={logoRef} className={`relative transition-all duration-500 ${isScrolled ? 'mb-2' : 'mb-6'} md:mb-0`}> 
+          <div className={`relative transition-all duration-500 ${isScrolled ? 'mb-2' : 'mb-6'} md:mb-0`}> 
             <Link href="/" className="group relative z-10 block">
               <h1 className="font-serif text-3xl md:text-5xl text-white tracking-wide drop-shadow-lg text-left">
                 <span className="italic font-light text-nature-200">Isara</span> Residence
@@ -79,9 +74,9 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Center: Desktop links (centered). Hidden when compact (overlap) or on small screens */}
-          <div ref={centerRef} className={`${isCompact ? 'hidden' : 'md:flex'} absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
-            <div className={`flex items-center gap-10 ${isScrolled ? 'md:text-xs' : 'md:text-sm'}`}>
+          {/* Center: Desktop links (centered). Standard responsive: show on laptop+ only */}
+          <div className="hidden lg:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className={`flex items-center gap-6 xl:gap-10 ${isScrolled ? 'lg:text-xs' : 'lg:text-sm'}`}>
               {items.map((item) => (
                 <Link
                   key={item}
@@ -96,13 +91,18 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Right: Mobile / compact toggle positioned at the right edge of the nav (flush to viewport) */}
+        {/* Right: Hamburger (mobile/tablet). Hidden on laptop+ */}
         <button
+          ref={menuButtonRef}
           type="button"
-          onClick={() => setIsMenuOpen((open) => !open)}
-          className={`${isCompact ? 'inline-flex' : 'md:hidden inline-flex'} absolute right-5 top-1/2 transform -translate-y-1/2 z-50 items-center justify-center rounded-none border-0 bg-transparent p-0 text-white/90 transition hover:bg-white/5`}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsMenuOpen((open) => !open);
+          }}
+          className="inline-flex lg:hidden absolute right-5 top-1/2 transform -translate-y-1/2 z-[70] items-center justify-center rounded-md border border-white/10 bg-white/10 p-2 text-white/90 transition hover:bg-white/20 tap-target"
           aria-label="Toggle navigation"
           aria-expanded={isMenuOpen}
+          aria-controls="mobile-nav-drawer"
         >
           <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             {isMenuOpen ? (
@@ -114,22 +114,46 @@ export default function Navigation() {
         </button>
 
         {/* Mobile navigation dropdown */}
-        <div className={`w-full md:hidden overflow-hidden transition-all duration-500 ${
-          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-        >
-          <div className="flex flex-col items-center gap-4 py-4">
-            {items.map((item) => (
-              <Link
-                key={item}
-                href={renderHref(item)}
-                className="relative text-white/80 hover:text-white uppercase tracking-[0.2em] text-[11px] font-light transition-colors duration-300 group"
-              >
-                {item}
-              </Link>
-            ))}
+        {/* Mobile navigation overlay */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 z-[50] lg:hidden" aria-hidden={!isMenuOpen}>
+            <div
+              className="absolute inset-0 "
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <div
+              id="mobile-nav-drawer"
+              className="absolute right-0 top-0 h-full w-[85%] max-w-[320px] bg-nature-950 border-l border-white/10 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center px-5 py-5">
+                <span className="text-xs uppercase tracking-[0.3em] text-nature-200">Menu</span>
+              </div>
+
+              <div className="flex flex-col gap-2 px-5 pb-6 bg-nature-950 backdrop-blur-sm">
+                {items.map((item) => (
+                  <Link
+                    key={item}
+                    href={renderHref(item)}
+                    className="relative text-white/90 uppercase tracking-[0.2em] text-sm font-light transition-all duration-200 tap-target w-full justify-start rounded-md px-3 mobile-menu-link"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ))}
+                <style>{`
+                  .mobile-menu-link:hover, .mobile-menu-link:focus-visible {
+                    background: rgba(255,255,255,1);
+                    color: #1a202c;
+                    backdrop-filter: blur(3px);
+                    -webkit-backdrop-filter: blur(3px);
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                  }
+                `}</style>
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );

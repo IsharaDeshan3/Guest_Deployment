@@ -56,12 +56,9 @@ export default function LocationModal({
     };
 
     document.addEventListener("keydown", onKeyDown);
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = originalOverflow;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images.length, hasImages, onClose]);
@@ -86,7 +83,7 @@ export default function LocationModal({
 
   return createPortal(
     <div
-      className={`fixed inset-0 z-[2147483647] bg-nature-950/70 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 ${
+      className={`absolute top-0 left-0 w-full min-h-screen z-[2147483647] bg-nature-950/70 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       role="dialog"

@@ -38,7 +38,7 @@ export default function Footer() {
               </h3>
               <a
                 href="mailto:isararesidence@gmail.com"
-                className="group flex items-center gap-3 text-sm text-nature-200/90 transition hover:text-nature-50"
+                className="group flex items-center gap-3 text-sm text-nature-200/90 transition hover:text-nature-50 min-h-11"
               >
                 <Mail className="h-4 w-4 text-nature-300 group-hover:text-nature-200" />
                 isararesidence@gmail.com
@@ -47,7 +47,7 @@ export default function Footer() {
                 href="https://wa.me/+94714723538"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 text-sm text-nature-200/90 transition hover:text-nature-50"
+                className="group flex items-center gap-3 text-sm text-nature-200/90 transition hover:text-nature-50 min-h-11"
               >
                 <Phone className="h-4 w-4 text-nature-300 group-hover:text-nature-200" />
                 +94 71 472 3538
@@ -69,7 +69,7 @@ export default function Footer() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="transition hover:text-nature-50"
+                    className="transition hover:text-nature-50 inline-flex items-center min-h-11"
                   >
                     {item.label}
                   </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
                   href="https://www.facebook.com/share/1FjNHpbboi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-full bg-nature-800/60 p-2 transition hover:bg-nature-700/70"
+                  className="group rounded-full bg-nature-800/60 h-11 w-11 flex items-center justify-center transition hover:bg-nature-700/70"
                   aria-label="Facebook"
                 >
                   <Facebook className="h-5 w-5 text-nature-200 group-hover:text-nature-50" />
@@ -95,7 +95,7 @@ export default function Footer() {
                   href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-full bg-nature-800/60 p-2 transition hover:bg-nature-700/70"
+                  className="group rounded-full bg-nature-800/60 h-11 w-11 flex items-center justify-center transition hover:bg-nature-700/70"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-5 w-5 text-nature-200 group-hover:text-nature-50" />

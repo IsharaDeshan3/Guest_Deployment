@@ -29,7 +29,7 @@ export default function RestaurantPage() {
       <Navigation />
 
       <div className="max-w-6xl mx-auto px-6 pt-36 pb-16">
-        <div className="mt-25 flex items-center justify-center">
+        <div className="mt-24 flex items-center justify-center">
           <AnimationRepair />
         </div>
       </div>

@@ -62,7 +62,7 @@ const IsaraFacilities: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-br from-nature-50 via-nature-100 to-nature-200">
+    <section className="relative py-16 mobL:py-20 tablet:py-24 laptop:py-32 px-6 overflow-hidden bg-gradient-to-br from-nature-50 via-nature-100 to-nature-200">
       {/* Background effects */}
       <div className="absolute inset-0 magical-tone-shift opacity-40" />
       <div className="absolute top-0 left-0 w-96 h-96 bg-nature-400/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-float" />
@@ -73,14 +73,14 @@ const IsaraFacilities: React.FC = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 tablet:mb-16">
           <p className="text-nature-600 font-medium tracking-widest uppercase text-sm mb-3 animate-fadeIn">
             Experience Isara
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl text-nature-900 mb-6 animate-fadeIn">
+          <h2 className="font-serif text-3xl mobS:text-4xl tablet:text-5xl laptop:text-6xl text-nature-900 mb-6 animate-fadeIn">
             Amenities
           </h2>
-          <p className="text-nature-700/80 text-lg max-w-2xl mx-auto animate-fadeIn">
+          <p className="text-nature-700/80 text-base mobL:text-lg max-w-2xl mx-auto animate-fadeIn">
             Every detail designed for your comfort in the heart of Polonnaruwa's
             ancient kingdom
           </p>
@@ -92,7 +92,7 @@ const IsaraFacilities: React.FC = () => {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-8 py-4 rounded-full font-medium transition-all duration-500
+              className={`px-5 mobL:px-6 tablet:px-8 py-3 mobL:py-4 rounded-full font-medium transition-all duration-500 tap-target text-sm mobL:text-base
                 ${
                   activeCategory === cat.id
                     ? "bg-gradient-to-r from-nature-600 to-nature-700 text-nature-50 shadow-xl scale-105"
@@ -106,14 +106,14 @@ const IsaraFacilities: React.FC = () => {
         </div>
 
         {/* Facilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
           {facilities[activeCategory].map((facility, index) => {
             const Icon = facility.icon;
 
             return (
               <div
                 key={facility.name}
-                className="group relative bg-nature-50/70 backdrop-blur-sm rounded-2xl p-8 border border-nature-300/50 hover:border-nature-500/60 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+                className="group relative bg-nature-50/70 backdrop-blur-sm rounded-2xl p-6 tablet:p-8 border border-nature-300/50 hover:border-nature-500/60 transition-all duration-500 hover:shadow-2xl tablet:hover:-translate-y-2"
                 style={{
                   animationDelay: `${0.4 + index * 0.1}s`,
                   animation: "fadeInUp 0.7s ease-out both",
@@ -121,8 +121,8 @@ const IsaraFacilities: React.FC = () => {
               >
                 {/* Icon */}
                 <div className="mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-nature-500 to-nature-700 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                    <Icon className="w-8 h-8 text-nature-50" strokeWidth={1.5} />
+                  <div className="w-14 h-14 tablet:w-16 tablet:h-16 rounded-2xl bg-gradient-to-br from-nature-500 to-nature-700 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                    <Icon className="w-7 h-7 tablet:w-8 tablet:h-8 text-nature-50" strokeWidth={1.5} />
                   </div>
                 </div>
 
@@ -139,9 +139,9 @@ const IsaraFacilities: React.FC = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-20 text-center animate-fadeIn">
-          <p className="text-nature-700/60 mb-6 text-lg">
-            Plus free parking,and more amenities
+        <div className="mt-12 tablet:mt-20 text-center animate-fadeIn">
+          <p className="text-nature-700/60 mb-6 text-base mobL:text-lg">
+            Plus free parking, and more amenities
           </p>
         </div>
       </div>
