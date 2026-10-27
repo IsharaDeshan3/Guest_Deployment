@@ -6,6 +6,7 @@ import * as PIXI from "pixi.js";
 export default function WaterBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
+  const cleanupRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -90,16 +91,19 @@ export default function WaterBackground() {
       window.addEventListener("resize", handleResize);
       
       // Cleanup inside init
-      (app as any)._customCleanup = () => {
-         window.removeEventListener("resize", handleResize);
+      cleanupRef.current = () => {
+        window.removeEventListener("resize", handleResize);
       };
     };
 
     initPixi();
 
     return () => {
+      if (cleanupRef.current) {
+        cleanupRef.current();
+        cleanupRef.current = null;
+      }
       if (appRef.current) {
-        if ((appRef.current as any)._customCleanup) (appRef.current as any)._customCleanup();
         appRef.current.destroy(true, { children: true, texture: true });
         appRef.current = null;
       }

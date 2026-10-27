@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 
 const NatureClouds = () => {
   // We don't necessarily need state if we just want static CSS clouds, 

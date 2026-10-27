@@ -21,10 +21,6 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
-
   // Close on Escape when drawer is open
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -67,9 +63,9 @@ export default function Navigation() {
           {/* Left: Logo */}
           <div className={`relative transition-all duration-500 ${isScrolled ? 'mb-2' : 'mb-6'} md:mb-0`}> 
             <Link href="/" className="group relative z-10 block">
-              <h1 className="font-serif text-3xl md:text-5xl text-white tracking-wide drop-shadow-lg text-left">
+              <span className="font-serif text-3xl md:text-5xl text-white tracking-wide drop-shadow-lg text-left block">
                 <span className="italic font-light text-nature-200">Isara</span> Residence
-              </h1>
+              </span>
               <div className="absolute -inset-4 bg-white/5 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </Link>
           </div>

@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import type { NearbyLocation } from "@/data/nearbyLocations";
-import { guesthouseOrigin } from "@/data/nearbyLocations";
+import { guesthouseOrigin, getLocationSlug } from "@/data/nearbyLocations";
 import { estimateDriveMinutes, haversineKm } from "@/lib/geo";
 
 export default function LocationModal({
@@ -130,7 +131,7 @@ export default function LocationModal({
               {hasImages ? (
                 <Image
                   src={images[index]}
-                  alt={`${location.name} image ${index + 1}`}
+                  alt={`${location.name} in Polonnaruwa - photo ${index + 1}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 800px"
@@ -191,6 +192,14 @@ export default function LocationModal({
             >
               {lang === "en" ? "Translate to Sinhala" : "Show English"}
             </button>
+
+            <Link
+              href={`/locations/${getLocationSlug(location)}`}
+              className="inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 bg-nature-600/70 hover:bg-nature-600 text-white font-medium border border-nature-400/40 transition-all text-sm shadow-md"
+            >
+              <span>View Full Guide & Directions</span>
+              <span aria-hidden="true">→</span>
+            </Link>
 
             <div className="text-xs text-nature-200/80">
               Tip: use ← / → keys to change images.

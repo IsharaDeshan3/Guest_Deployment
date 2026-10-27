@@ -278,3 +278,32 @@ export const nearbyLocations: NearbyLocation[] = [
     ],
   },
 ];
+
+export function getLocationSlug(location: NearbyLocation): string {
+  return location.id.replace(/_/g, "-");
+}
+
+export function getLocationBySlugOrId(identifier: string): NearbyLocation | undefined {
+  const normalized = decodeURIComponent(identifier).toLowerCase().trim();
+  return nearbyLocations.find(
+    (loc) => loc.id === normalized || getLocationSlug(loc) === normalized
+  );
+}
+
+export function getRelatedLocations(currentId: string, limit = 3): NearbyLocation[] {
+  const current = nearbyLocations.find((loc) => loc.id === currentId);
+  if (!current) {
+    return nearbyLocations.filter((loc) => loc.id !== currentId).slice(0, limit);
+  }
+
+  return nearbyLocations
+    .filter((loc) => loc.id !== currentId)
+    .map((loc) => {
+      const dLat = loc.lat - current.lat;
+      const dLng = loc.lng - current.lng;
+      return { loc, distSq: dLat * dLat + dLng * dLng };
+    })
+    .sort((a, b) => a.distSq - b.distSq)
+    .slice(0, limit)
+    .map((item) => item.loc);
+}

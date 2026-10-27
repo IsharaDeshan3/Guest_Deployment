@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 
 interface FoodItem {
   id: number;
@@ -56,16 +56,18 @@ const foodItems: FoodItem[] = [
   },
 ];
 
+const emptySubscribe = () => () => {};
+
 export default function RestaurantShowcase() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [radius, setRadius] = useState(280);
   const [itemRadius, setItemRadius] = useState(100);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const updateSizes = () => {

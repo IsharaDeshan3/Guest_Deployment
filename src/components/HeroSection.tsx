@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useState } from "react";
 
 // Quick Book Card Component with Expandable Booking Interface - Portal Version
 import { createPortal } from 'react-dom';
@@ -17,36 +18,23 @@ interface QuickBookCardProps {
   onToggle: () => void;
 }
 
-function QuickBookCard({ roomType, price, capacity, image, isExpanded, isAnyExpanded, onToggle }: QuickBookCardProps) {
+function getDefaultDates() {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dayAfter = new Date();
+  dayAfter.setDate(dayAfter.getDate() + 2);
+
+  return {
+    checkIn: tomorrow.toISOString().split("T")[0],
+    checkOut: dayAfter.toISOString().split("T")[0],
+  };
+}
+
+function QuickBookCard({ roomType, capacity, image, isExpanded, isAnyExpanded, onToggle }: QuickBookCardProps) {
+  const defaultDates = getDefaultDates();
   const [isHovered, setIsHovered] = useState(false);
-  const [checkInDate, setCheckInDate] = useState("");
-  const [checkOutDate, setCheckOutDate] = useState("");
-  const [mounted, setMounted] = useState(false);
-  // Track animation mounting for smooth portal entry
-  const [showPortal, setShowPortal] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // Set default dates
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const dayAfter = new Date();
-    dayAfter.setDate(dayAfter.getDate() + 2);
-    setCheckInDate(tomorrow.toISOString().split('T')[0]);
-    setCheckOutDate(dayAfter.toISOString().split('T')[0]);
-  }, []);
-
-  // Handle smooth transition for portal
-  useEffect(() => {
-    if (isExpanded) {
-      setShowPortal(true);
-    } else {
-      // Delay unmounting for exit animation if we were managing own state
-      // But since parent controls isExpanded, we sync directly. 
-      // For smoother exit, we'd need a delay, but let's keep it snappy for responsiveness first.
-      setShowPortal(false);
-    }
-  }, [isExpanded]);
+  const [checkInDate, setCheckInDate] = useState(defaultDates.checkIn);
+  const [checkOutDate, setCheckOutDate] = useState(defaultDates.checkOut);
 
   const handleBookNow = () => {
     // Open booking.com via an anchor click to improve reliability with popup blockers
@@ -192,7 +180,7 @@ function QuickBookCard({ roomType, price, capacity, image, isExpanded, isAnyExpa
       </div>
 
       {/* Expanded Portal */}
-      {mounted && isExpanded && createPortal(ExpandedCardContent, document.body)}
+      {isExpanded && createPortal(ExpandedCardContent, document.body)}
     </>
   );
 }
@@ -247,11 +235,17 @@ export default function HeroSection() {
     >
       {/* Background Image with Subtle Overlay */}
       <div className="absolute inset-0 w-full h-full">
-      {/* Background Image - Static Replacement for Ripple */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: 'url(/hero-bg.jpeg)' }}
-      />
+      {/* Optimized hero image for faster LCP */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero-bg.jpeg"
+          alt="Scenic view near ISARA Residence in Polonnaruwa"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
         
         {/* Dynamic Day/Night Cycle Overlay */}
         {/* Dark overlay that increases opacity as mouse moves right (plus a subtle +2% base darkening) */}

@@ -4,9 +4,7 @@ import {
   Wifi,
   Wind,
   Droplets,
-  Bike,
   Coffee,
-  Utensils,
   Shield,
   Leaf,
   Music,
@@ -81,7 +79,7 @@ const IsaraFacilities: React.FC = () => {
             Amenities
           </h2>
           <p className="text-nature-700/80 text-base mobL:text-lg max-w-2xl mx-auto animate-fadeIn">
-            Every detail designed for your comfort in the heart of Polonnaruwa's
+            Every detail designed for your comfort in the heart of Polonnaruwa&apos;s
             ancient kingdom
           </p>
         </div>
