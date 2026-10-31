@@ -144,6 +144,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XKCE677R1P"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XKCE677R1P');
+            `,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(lodgingJsonLd).replace(/</g, "\\u003c"),
