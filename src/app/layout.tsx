@@ -79,6 +79,10 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/apple-icon.png",
   },
+
+  verification: {
+    google: "ps-K7zGKt8PCBq9Mqq-T2W05UJQ2RiXaF93eSLGb9_I",
+  },
 };
 
 export const viewport: Viewport = {
