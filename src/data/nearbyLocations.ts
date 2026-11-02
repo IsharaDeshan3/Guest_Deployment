@@ -13,8 +13,8 @@ export type NearbyLocation = {
 
 export const guesthouseOrigin = {
   name: "Isara Residence",
-  lat: 7.9439,
-  lng: 80.9992,
+  lat: 7.9594659,
+  lng: 80.9940749,
 };
 
 export const nearbyLocations: NearbyLocation[] = [

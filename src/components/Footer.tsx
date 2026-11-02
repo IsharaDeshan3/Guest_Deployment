@@ -44,13 +44,13 @@ export default function Footer() {
                 isararesidence@gmail.com
               </a>
               <a
-                href="https://wa.me/+94714723538"
+                href="https://wa.me/94706801910"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm text-nature-200/90 transition hover:text-nature-50 min-h-11"
               >
                 <Phone className="h-4 w-4 text-nature-300 group-hover:text-nature-200" />
-                +94 71 472 3538
+                +94 70 680 1910
               </a>
             </div>
 

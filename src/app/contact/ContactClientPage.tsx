@@ -51,8 +51,8 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: "WhatsApp",
-      value: "+94 71 472 3538",
-      href: "https://wa.me/+94714723538",
+      value: "+94 70 680 1910",
+      href: "https://wa.me/94706801910",
       color: "from-nature-500 to-nature-700",
     },
     {
@@ -66,7 +66,7 @@ export default function ContactPage() {
       icon: MapPin,
       label: "Location",
       value: "Polonnaruwa, Sri Lanka",
-      href: "https://www.google.com/maps?q=7.9439,80.9992",
+      href: "https://maps.app.goo.gl/SrRATsz9uvcrRsc66",
       color: "from-nature-500 to-nature-700",
     },
   ];
@@ -606,7 +606,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/+94714723538"
+                href="https://wa.me/94706801910"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="tap-target inline-flex items-center justify-center px-6 py-4 tablet:px-10 tablet:py-5 rounded-xl bg-gradient-to-r from-nature-500 to-nature-600 hover:from-nature-400 hover:to-nature-500 text-nature-50 font-semibold uppercase tracking-wider transition-all duration-300 shadow-xl hover:shadow-2xl tablet:hover:scale-105"

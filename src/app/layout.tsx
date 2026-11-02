@@ -123,7 +123,7 @@ const lodgingJsonLd = {
 
   "@id": "https://isararesidence.vercel.app/#lodging",
   url: "https://isararesidence.vercel.app",
-  telephone: "+94714723538",
+  telephone: "+94706801910",
   email: "isararesidence@gmail.com",
   priceRange: "$$",
   currenciesAccepted: "LKR, USD",
@@ -140,8 +140,8 @@ const lodgingJsonLd = {
 
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 7.9403,
-    longitude: 81.0188,
+    latitude: 7.9594659,
+    longitude: 80.9940749,
   },
 
   checkinTime: "14:00",
