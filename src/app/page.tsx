@@ -6,7 +6,7 @@ import AboutSection from "@/components/AboutSection";
 import IsaraFacilities from "@/components/IsaraFacilities";
 
 export const metadata: Metadata = {
-  title: "Guest House in Polonnaruwa – ISARA Residence",
+  title: "ISARA Residence | Guest House & Rooms in Polonnaruwa near Parakrama Samudraya",
   description:
     "Stay at ISARA Residence in Polonnaruwa, located near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
   alternates: {
