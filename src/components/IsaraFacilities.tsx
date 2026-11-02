@@ -5,12 +5,12 @@ import {
   Wind,
   Droplets,
   Coffee,
-  Shield,
   Leaf,
-  Music,
+  Users,
   Camera,
   Sparkles,
   Home,
+  MapPin,
   LucideIcon,
 } from "lucide-react";
 
@@ -39,18 +39,18 @@ const IsaraFacilities: React.FC = () => {
 
   const facilities: Facilities = {
     highlights: [
-      { icon: Wifi, name: "Free Wi-Fi", desc: "Stay connected throughout your visit" },
-      { icon: Wind, name: "AC Rooms", desc: "Climate-controlled comfort" },
-      { icon: Droplets, name: "Hot Water", desc: "24/7 availability" },
-      { icon: Music, name: "Live Performances", desc: "Traditional cultural shows" },
-      { icon: Leaf, name: "Garden Views", desc: "Lush tropical surroundings" },
+      { icon: Wifi, name: "Free Wi-Fi", desc: "Complimentary high-speed connectivity" },
+      { icon: Camera, name: "Reservoir Backyard View", desc: "View of Parakrama Samudra from the backyard" },
+      { icon: MapPin, name: "Roadside Location", desc: "Effortless road access and guest parking" },
+      { icon: Wind, name: "AC & Non-AC Rooms", desc: "Clean, comfortable lodging options" },
+      { icon: Droplets, name: "Hot Water", desc: "Equipped in private attached bathrooms" },
     ],
     comfort: [
-      { icon: Home, name: "Family Rooms", desc: "Spacious accommodation" },
-      { icon: Shield, name: "24/7 Security", desc: "Your safety is our priority" },
-      { icon: Coffee, name: "Shared Lounge", desc: "Relax and socialize" },
-      { icon: Sparkles, name: "Daily Housekeeping", desc: "Pristine cleanliness" },
-      { icon: Camera, name: "Scenic Views", desc: "Picturesque surroundings" },
+      { icon: Users, name: "Parties & Meetings", desc: "Hosting small events & private gatherings" },
+      { icon: Coffee, name: "Breakfast on Request", desc: "Optional fresh morning meals available" },
+      { icon: Home, name: "Family Rooms", desc: "Spacious options for group and family visits" },
+      { icon: Leaf, name: "Garden Atmosphere", desc: "Quiet tropical greenery and outdoor seating" },
+      { icon: Sparkles, name: "Pristine Upkeep", desc: "Attentive housekeeping and clean rooms" },
     ],
   };
 

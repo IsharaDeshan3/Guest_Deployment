@@ -3,15 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { createPortal } from "react-dom";
+import { getWhatsAppRoomUrl } from "@/lib/whatsapp";
 
 // Quick Book Card Component with Expandable Booking Interface - Portal Version
-import { createPortal } from 'react-dom';
-// import HeroRipple from "./HeroRipple";
 
 interface QuickBookCardProps {
   roomType: string;
-  price: string;
-  capacity: string;
+  amenitiesText: string;
   image: string;
   isExpanded: boolean;
   isAnyExpanded: boolean;
@@ -25,28 +24,30 @@ function getDefaultDates() {
   dayAfter.setDate(dayAfter.getDate() + 2);
 
   return {
+    today: new Date().toISOString().split("T")[0],
     checkIn: tomorrow.toISOString().split("T")[0],
     checkOut: dayAfter.toISOString().split("T")[0],
   };
 }
 
-function QuickBookCard({ roomType, capacity, image, isExpanded, isAnyExpanded, onToggle }: QuickBookCardProps) {
+function QuickBookCard({ roomType, amenitiesText, image, isExpanded, isAnyExpanded, onToggle }: QuickBookCardProps) {
   const defaultDates = getDefaultDates();
   const [isHovered, setIsHovered] = useState(false);
   const [checkInDate, setCheckInDate] = useState(defaultDates.checkIn);
   const [checkOutDate, setCheckOutDate] = useState(defaultDates.checkOut);
 
   const handleBookNow = () => {
-    // Open booking.com via an anchor click to improve reliability with popup blockers
     const url = `https://www.booking.com/hotel/lk/isara-guest-polonnaruwa.en-gb.html?checkin=${checkInDate}&checkout=${checkOutDate}`;
-    const a = document.createElement('a');
-    a.href = url;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleWhatsApp = () => {
+    const url = getWhatsAppRoomUrl({
+      roomType,
+      checkIn: checkInDate,
+      checkOut: checkOutDate,
+    });
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   // The Card Content for Expanded State
@@ -72,16 +73,17 @@ function QuickBookCard({ roomType, capacity, image, isExpanded, isAnyExpanded, o
         </div>
 
         {/* Content */}
-        <div className="relative p-8">
+        <div className="relative p-6 sm:p-8">
            {/* Header */}
           <div className="flex items-start justify-between mb-6">
             <div>
-              <h4 className="text-white font-bold text-3xl mb-2 drop-shadow-lg">{roomType}</h4>
-              <p className="text-white/80 text-sm uppercase tracking-wider">{capacity}</p>
+              <h4 className="text-white font-bold text-2xl sm:text-3xl mb-1 drop-shadow-lg">{roomType}</h4>
+              <p className="text-white/80 text-xs sm:text-sm uppercase tracking-wider">{amenitiesText}</p>
             </div>
             <button 
               onClick={onToggle}
               className="text-white/70 hover:text-white transition-colors hover:rotate-90 duration-300 bg-white/10 rounded-full p-2"
+              aria-label="Close booking modal"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -93,20 +95,29 @@ function QuickBookCard({ roomType, capacity, image, isExpanded, isAnyExpanded, o
           <div className="space-y-4 mb-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-white/90 text-xs uppercase tracking-wider mb-2 block font-bold">Check-in</label>
+                <label className="text-white/90 text-xs uppercase tracking-wider mb-2 block font-bold">Check-in (from 15:00)</label>
                 <input 
                   type="date"
+                  min={defaultDates.today}
                   value={checkInDate}
-                  onChange={(e) => setCheckInDate(e.target.value)}
+                  onChange={(e) => {
+                    setCheckInDate(e.target.value);
+                    if (e.target.value >= checkOutDate) {
+                      const next = new Date(e.target.value);
+                      next.setDate(next.getDate() + 1);
+                      setCheckOutDate(next.toISOString().split("T")[0]);
+                    }
+                  }}
                   className="w-full bg-white/15 border border-white/30 rounded-xl px-4 py-3 text-white text-base
                             focus:bg-white/25 focus:border-white/60 focus:outline-none transition-all
                             hover:bg-white/20"
                 />
               </div>
               <div>
-                <label className="text-white/90 text-xs uppercase tracking-wider mb-2 block font-bold">Check-out</label>
+                <label className="text-white/90 text-xs uppercase tracking-wider mb-2 block font-bold">Check-out (by 10:00)</label>
                 <input 
                   type="date"
+                  min={checkInDate || defaultDates.today}
                   value={checkOutDate}
                   onChange={(e) => setCheckOutDate(e.target.value)}
                   className="w-full bg-white/15 border border-white/30 rounded-xl px-4 py-3 text-white text-base
@@ -117,25 +128,46 @@ function QuickBookCard({ roomType, capacity, image, isExpanded, isAnyExpanded, o
             </div>
           </div>
 
-            {/* (Price removed from expanded quick-book card per request) */}
+          {/* Direct Booking & Inquiry Options */}
+          <div className="space-y-3">
+            <button
+              onClick={handleBookNow}
+              className="w-full bg-white text-nature-950 font-bold py-3.5 px-6 rounded-xl
+                        hover:bg-nature-200 transition-all duration-300
+                        uppercase tracking-wider text-xs sm:text-sm shadow-xl hover:scale-[1.01]
+                        transform active:scale-95 flex items-center justify-center gap-2"
+            >
+              <span>Book on Booking.com</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </button>
 
-          {/* Book Now Button */}
-          <button
-            onClick={handleBookNow}
-            className="w-full bg-white text-black font-bold py-4 px-6 rounded-xl
-                      hover:bg-nature-200 hover:text-nature-900 transition-all duration-300
-                      uppercase tracking-wider text-base shadow-2xl hover:shadow-white/20 hover:scale-[1.02]
-                      transform active:scale-95 flex items-center justify-center gap-2"
-          >
-            <span>Book Now</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
+            <button
+              onClick={handleWhatsApp}
+              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-xl
+                        transition-all duration-300 uppercase tracking-wider text-xs sm:text-sm shadow-xl hover:scale-[1.01]
+                        transform active:scale-95 flex items-center justify-center gap-2"
+            >
+              <span>Inquire via WhatsApp</span>
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z" />
+              </svg>
+            </button>
+
+            <Link
+              href={`/contact?type=room_booking&room=${encodeURIComponent(roomType)}`}
+              onClick={onToggle}
+              className="w-full bg-white/10 hover:bg-white/20 border border-white/30 text-white font-medium py-3 px-6 rounded-xl
+                        transition-all duration-300 uppercase tracking-wider text-xs text-center block"
+            >
+              Send Website Inquiry Form
+            </Link>
+          </div>
 
           {/* Quick Info */}
-          <p className="text-white/50 text-[10px] text-center mt-4 uppercase tracking-wide font-medium">
-            ✓ Instant confirmation • Best rate guaranteed
+          <p className="text-white/60 text-[11px] text-center mt-4 tracking-wide font-normal">
+            Check-in: 3:00 PM • Check-out: 10:00 AM • Free Wi-Fi • Optional Breakfast
           </p>
         </div>
       </div>
@@ -166,12 +198,15 @@ function QuickBookCard({ roomType, capacity, image, isExpanded, isAnyExpanded, o
           <div className="absolute inset-0 bg-gradient-to-br from-nature-900/60 to-nature-800/40" />
         </div>
 
-        {/* Room Info (price hidden) */}
-        <div className="relative p-4 flex items-center gap-4">
+        {/* Room Info */}
+        <div className="relative p-4 flex items-center justify-between gap-4">
           <div className="flex-1">
             <h4 className="text-white font-medium text-base mb-1 drop-shadow-lg">{roomType}</h4>
-            <p className="text-white/70 text-xs uppercase tracking-wider">{capacity}</p>
+            <p className="text-white/70 text-xs uppercase tracking-wider">{amenitiesText}</p>
           </div>
+          <span className="text-xs uppercase tracking-wider px-3 py-1.5 rounded-full bg-white/15 border border-white/25 text-white/90 group-hover:bg-white group-hover:text-nature-950 transition-all">
+            Inquire
+          </span>
         </div>
 
         {/* Hover Indicator */}
@@ -331,39 +366,27 @@ export default function HeroSection() {
           {/* Room Cards */}
           <QuickBookCard 
             roomType="Deluxe Double Room"
-            price="LKR 5265"
-            capacity="2 Guests"
-            image="/deluxe-room.png"
-            isExpanded={expandedCard === "Deluxe Room"}
+            amenitiesText="AC • Hot Water • Private Bath"
+            image="/images/rooms/deluxe_double/1.jpg"
+            isExpanded={expandedCard === "Deluxe Double Room"}
             isAnyExpanded={!!expandedCard}
-            onToggle={() => toggleCard("Deluxe Room")}
+            onToggle={() => toggleCard("Deluxe Double Room")}
+          />
+          <QuickBookCard 
+            roomType="Double Room Non AC"
+            amenitiesText="Non AC • Private Bath • Garden Breeze"
+            image="/images/rooms/double_non_ac/1.jpg"
+            isExpanded={expandedCard === "Double Room Non AC"}
+            isAnyExpanded={!!expandedCard}
+            onToggle={() => toggleCard("Double Room Non AC")}
           />
           <QuickBookCard 
             roomType="Family Room"
-            price="LKR 5791"
-            capacity="4 Guests"
-            image="/family-suite.png"
+            amenitiesText="Spacious Family Suite • AC • Private Bath"
+            image="/images/rooms/family_room_1/1.jpg"
             isExpanded={expandedCard === "Family Room"}
             isAnyExpanded={!!expandedCard}
             onToggle={() => toggleCard("Family Room")}
-          />
-          <QuickBookCard 
-            roomType="Garden View Room"
-            price="LKR 5791"
-            capacity="4 Guests"
-            image="/deluxe-room.png"
-            isExpanded={expandedCard === "Lake View Room"}
-            isAnyExpanded={!!expandedCard}
-            onToggle={() => toggleCard("Lake View Room")}
-          />
-          <QuickBookCard 
-            roomType="Lake View Double Room"
-            price="LKR 6813"
-            capacity="2 Guests"
-            image="/family-suite.png"
-            isExpanded={expandedCard === "Lake View Double Room"}
-            isAnyExpanded={!!expandedCard}
-            onToggle={() => toggleCard("Lake View Double Room")}
           />
         </div>
       </div>

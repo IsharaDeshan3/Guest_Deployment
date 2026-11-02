@@ -33,23 +33,25 @@ export default function Navigation() {
     };
   }, [isMenuOpen]);
 
-  const items = ['About', 'Rooms', 'Locations', 'Restaurant', 'Contact'];
+  const items = ['About', 'Rooms', 'Events', 'Locations', 'Restaurant', 'Contact'];
 
   const renderHref = (item: string) => {
     const section = item.toLowerCase();
     return item === 'About'
       ? '/about'
-      : item === 'Locations'
-        ? '/locations'
-        : item === 'Restaurant'
-          ? '/restaurant'
-          : item === 'Rooms'
-            ? '/rooms'
-            : item === 'Contact'
-              ? '/contact'
-              : pathname === '/'
-                ? `#${section}`
-                : `/#${section}`;
+      : item === 'Rooms'
+        ? '/rooms'
+        : item === 'Events'
+          ? '/events'
+          : item === 'Locations'
+            ? '/locations'
+            : item === 'Restaurant'
+              ? '/restaurant'
+              : item === 'Contact'
+                ? '/contact'
+                : pathname === '/'
+                  ? `#${section}`
+                  : `/#${section}`;
   };
 
   return (

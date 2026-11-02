@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import Image from "next/image";
 import AerialMapBackground from './AerialMapBackground';
@@ -97,12 +98,12 @@ const AboutSection = () => {
 
                 {/* Signature / CTA */}
                 <div className="pt-6">
-                   <button className="group flex items-center gap-3 text-nature-100 font-medium hover:text-white transition-colors tap-target">
+                   <Link href="/about" className="group flex items-center gap-3 text-nature-100 font-medium hover:text-white transition-colors tap-target">
                       <span>Explore Our Story</span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1 transition-transform">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                       </svg>
-                   </button>
+                   </Link>
                 </div>
               </div>
 

@@ -144,8 +144,8 @@ const lodgingJsonLd = {
     longitude: 80.9940749,
   },
 
-  checkinTime: "14:00",
-  checkoutTime: "11:00",
+  checkinTime: "15:00",
+  checkoutTime: "10:00",
 
   amenityFeature: [
     {
@@ -165,22 +165,37 @@ const lodgingJsonLd = {
     },
     {
       "@type": "LocationFeatureSpecification",
-      name: "Garden View",
-      value: true,
-    },
-    {
-      "@type": "LocationFeatureSpecification",
       name: "Private Bathroom",
       value: true,
     },
     {
       "@type": "LocationFeatureSpecification",
-      name: "24/7 Front Desk",
+      name: "Garden View",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Parakrama Samudra Backyard View",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Roadside Location",
       value: true,
     },
     {
       "@type": "LocationFeatureSpecification",
       name: "Free Parking",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Optional Breakfast upon Request",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Small Events & Gathering Facilities",
       value: true,
     },
   ],
@@ -195,41 +210,25 @@ const lodgingJsonLd = {
         numberOfBeds: 1,
         typeOfBed: "Double Bed",
       },
-      occupancy: {
-        "@type": "QuantitativeValue",
-        maxValue: 2,
+    },
+    {
+      "@type": "HotelRoom",
+      name: "Double Room Non AC",
+      description: "Comfortable non-AC double bedroom with private attached bathroom and garden atmosphere.",
+      bed: {
+        "@type": "BedDetails",
+        numberOfBeds: 1,
+        typeOfBed: "Double Bed",
       },
     },
     {
       "@type": "HotelRoom",
       name: "Family Room",
-      description: "Spacious air-conditioned family suite accommodating up to 4 guests with private bathroom and garden surroundings.",
+      description: "Spacious air-conditioned family room with private bathroom and garden surroundings.",
       bed: {
         "@type": "BedDetails",
         numberOfBeds: 2,
         typeOfBed: "Double Bed",
-      },
-      occupancy: {
-        "@type": "QuantitativeValue",
-        maxValue: 4,
-      },
-    },
-    {
-      "@type": "HotelRoom",
-      name: "Garden View Room",
-      description: "Comfortable room overlooking tropical gardens with peaceful natural surroundings.",
-      occupancy: {
-        "@type": "QuantitativeValue",
-        maxValue: 4,
-      },
-    },
-    {
-      "@type": "HotelRoom",
-      name: "Lake View Double Room",
-      description: "Double room with serene views towards the breeze of Parakrama Samudraya and garden greenery.",
-      occupancy: {
-        "@type": "QuantitativeValue",
-        maxValue: 2,
       },
     },
   ],
@@ -253,29 +252,18 @@ const lodgingJsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "HotelRoom",
+          name: "Double Room Non AC",
+        },
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "LKR",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "HotelRoom",
           name: "Family Room",
-        },
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          priceCurrency: "LKR",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "HotelRoom",
-          name: "Garden View Room",
-        },
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          priceCurrency: "LKR",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "HotelRoom",
-          name: "Lake View Double Room",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
@@ -299,13 +287,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Ads */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11085339418"
-          strategy="afterInteractive"
-        />
-
-        {/* Google Analytics 4 */}
+        {/* Google Tag Manager / Analytics & Google Ads */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XKCE677R1P"
           strategy="afterInteractive"

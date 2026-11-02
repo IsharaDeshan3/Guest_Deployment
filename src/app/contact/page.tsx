@@ -35,26 +35,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What time is check-in and check-out?",
+      name: "What time is check-in and check-out at ISARA Residence?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Check-in is at 2:00 PM and check-out is at 11:00 AM. Early check-in or late check-out can be arranged subject to availability.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How far is ISARA Residence from the ancient city?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ISARA Residence is about 5 minutes from the archaeological site of Polonnaruwa.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you provide transportation services?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Airport transfers, tuk-tuk rentals, and guided tours can be arranged.",
+        text: "Check-in time is from 3:00 PM (15:00) and check-out time is until 10:00 AM (10:00). Please contact us in advance if you need to coordinate arrival timing.",
       },
     },
     {
@@ -62,7 +46,31 @@ const faqJsonLd = {
       name: "Is breakfast included in the room rate?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. A Sri Lankan breakfast is included with all room bookings, with local and international options.",
+        text: "Breakfast is optional and provided upon request. It is not automatically included in every booking, allowing you full flexibility during your stay.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can ISARA Residence host small parties, meetings, or gatherings?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, our property can accommodate small parties, corporate meetings, and private gatherings with backyard views overlooking Parakrama Samudra. You can submit an event inquiry through our contact form or directly via WhatsApp.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is complimentary Wi-Fi available?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, free Wi-Fi is available across the property for all staying guests and event attendees.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What views and setting does ISARA Residence feature?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ISARA Residence is situated roadside for easy road access, with scenic views of the ancient Parakrama Samudra reservoir visible right from the backyard.",
       },
     },
   ],

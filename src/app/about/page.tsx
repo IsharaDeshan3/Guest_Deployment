@@ -64,14 +64,14 @@ export default function AboutPage() {
           <article className="rounded-2xl border border-nature-700/60 bg-nature-900/60 p-6">
             <h2 className="font-serif text-2xl">Close To What Matters</h2>
             <p className="mt-3 text-nature-200 leading-relaxed">
-              ISARA Residence is positioned for quick access to temples, museums, and archaeological landmarks while still offering a peaceful environment to unwind in the evening.
+              Conveniently situated roadside for effortless travel access, ISARA Residence also features peaceful views of the historic Parakrama Samudra reservoir directly from our backyard. We are located just minutes from archaeological landmarks and temples.
             </p>
           </article>
 
           <article className="rounded-2xl border border-nature-700/60 bg-nature-900/60 p-6">
-            <h2 className="font-serif text-2xl">Our Promise</h2>
+            <h2 className="font-serif text-2xl">Stay & Gatherings</h2>
             <p className="mt-3 text-nature-200 leading-relaxed">
-              Every guest receives attentive service, clear travel guidance, and a comfortable room prepared with care. We&apos;re committed to making your Polonnaruwa visit smooth from the moment you arrive.
+              In addition to comfortable guest rooms with free Wi-Fi and air conditioning, our serene lakeside garden accommodates small parties, private celebrations, and business meetings. Check-in is from 3:00 PM and check-out is by 10:00 AM. Fresh Sri Lankan breakfast is optional upon request.
             </p>
           </article>
         </div>
