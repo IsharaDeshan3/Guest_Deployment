@@ -49,7 +49,7 @@ export default function AerialMapBackground() {
         {/* Placeholder for Aerial View - Using a high quality Unsplash image of a tropical lake/forest from above */}
         <Image
           src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?q=80&w=2070&auto=format&fit=crop"
-          alt="Aerial view of lush tropical forest and water"
+          alt="Aerial landscape view of Polonnaruwa water reservoirs and lush tropical sanctuary around ISARA Residence"
           fill
           className="object-cover opacity-60"
           sizes="100vw"

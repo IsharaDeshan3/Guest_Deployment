@@ -307,11 +307,10 @@ export default function HeroSection() {
             Polonnaruwa, Sri Lanka
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-6 leading-tight drop-shadow-2xl">
-            Experience <br/> <span className="italic text-nature-200">Serenity</span>
+            Guest House in Polonnaruwa – <span className="italic text-nature-200">ISARA Residence</span>
           </h1>
           <p className="max-w-xl mx-auto lg:mx-0 text-nature-50/90 text-sm sm:text-base md:text-lg mb-8 font-light leading-relaxed drop-shadow-lg">
-            A peaceful sanctuary nestled in the heart of the ancient city, 
-            where history meets the calm waters of Parakrama Samudraya.
+            A peaceful sanctuary nestled near the ancient city and Parakrama Samudraya. Offering air-conditioned rooms, lush garden views, hot water, and authentic Sri Lankan hospitality.
           </p>
           <Link 
             href="/rooms" 
@@ -325,7 +324,9 @@ export default function HeroSection() {
 
         {/* Right Side - Quick Booking Cards */}
         <div className="flex flex-col gap-4 w-full max-w-md mt-10 lg:mt-0 lg:w-80 xl:w-96">
-          <h3 className="text-white/90 text-sm uppercase tracking-[0.2em] mb-2 font-light text-center lg:text-left">Quick Book</h3>
+          <h2 className="text-white/90 text-sm uppercase tracking-[0.2em] mb-2 font-light text-center lg:text-left">
+            Comfortable Rooms & Accommodation in Polonnaruwa
+          </h2>
           
           {/* Room Cards */}
           <QuickBookCard 

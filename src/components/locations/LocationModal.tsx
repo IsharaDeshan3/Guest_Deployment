@@ -174,7 +174,13 @@ export default function LocationModal({
                     }`}
                     aria-label={`Show image ${i + 1}`}
                   >
-                    <Image src={src} alt="" fill className="object-cover" sizes="80px" />
+                    <Image
+                      src={src}
+                      alt={`${location.name} photo thumbnail ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                    />
                   </button>
                 ))}
               </div>

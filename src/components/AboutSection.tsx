@@ -46,7 +46,7 @@ const AboutSection = () => {
                <div className="absolute inset-0 bg-nature-900">
                   <Image 
                     src="/about-sec-lnd.jpg" 
-                    alt="Serene Garden at Isara Residence"
+                    alt="ISARA Residence tropical garden and guest house grounds in Polonnaruwa"
                     fill
                     className="object-cover opacity-90"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -84,7 +84,7 @@ const AboutSection = () => {
                 </div>
                 
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-nature-50 leading-tight">
-                  Where Ancient History Meets <span className="italic text-nature-300">Modern Tranquility</span>
+                  Explore Polonnaruwa Ancient City & <span className="italic text-nature-300">Parakrama Samudraya</span>
                 </h2>
 
                 <p className="text-nature-200 leading-relaxed text-base sm:text-lg max-w-prose">

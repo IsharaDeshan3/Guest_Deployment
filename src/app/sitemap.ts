@@ -13,12 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${base}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: `${base}/rooms`,
       lastModified: now,
       changeFrequency: "weekly",
@@ -27,8 +21,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${base}/locations`,
       lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.85,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${base}/restaurant`,
@@ -40,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/contact`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 0.7,
     },
   ];
 

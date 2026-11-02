@@ -161,7 +161,7 @@ export default function AttractionDetailClient({
               >
                 <Image
                   src={img}
-                  alt=""
+                  alt={`${location.name} in Polonnaruwa - thumbnail view ${idx + 1}`}
                   fill
                   className="object-cover"
                   sizes="96px"

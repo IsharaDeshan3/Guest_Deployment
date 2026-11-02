@@ -76,7 +76,7 @@ const IsaraFacilities: React.FC = () => {
             Experience Isara
           </p>
           <h2 className="font-serif text-3xl mobS:text-4xl tablet:text-5xl laptop:text-6xl text-nature-900 mb-6 animate-fadeIn">
-            Amenities
+            Signature Amenities at ISARA Residence
           </h2>
           <p className="text-nature-700/80 text-base mobL:text-lg max-w-2xl mx-auto animate-fadeIn">
             Every detail designed for your comfort in the heart of Polonnaruwa&apos;s

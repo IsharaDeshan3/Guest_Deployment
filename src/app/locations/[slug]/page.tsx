@@ -461,7 +461,7 @@ export default async function AttractionDetailPage({ params }: Props) {
                         <div className="relative mb-3.5 aspect-[16/10] w-full overflow-hidden rounded-2xl bg-nature-950">
                           <Image
                             src={relImg}
-                            alt={rel.name}
+                            alt={`${rel.name} archaeological landmark in Polonnaruwa, ${relDist.toFixed(1)} km from ISARA Residence`}
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

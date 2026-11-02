@@ -119,7 +119,7 @@ export default function LocationsPage() {
                       <div className="relative mb-3 aspect-[16/10] w-full overflow-hidden rounded-xl bg-black/40">
                         <Image
                           src={img}
-                          alt={location.name}
+                          alt={`${location.name} ancient landmark in Polonnaruwa, ${dist.toFixed(1)} km from ISARA Residence`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

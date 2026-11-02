@@ -129,7 +129,7 @@ export default function RoomsPage() {
                 <div className="absolute inset-0">
                   <Image
                     src={`/images/rooms/${room.galleryFolder}/1.jpg`}
-                    alt={room.title}
+                    alt={`ISARA Residence ${room.title} in Polonnaruwa with ${room.amenities.join(', ')}`}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover transition-transform duration-300"
@@ -226,7 +226,7 @@ export default function RoomsPage() {
                     <div className="relative h-[45vh] sm:h-[55vh] md:h-[60vh] w-full md:w-[44%] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-black/30 transform-gpu transition-all duration-700">
                       <Image
                         src={galleryImages[activeIndex]}
-                        alt={openRoomData?.title ?? "Room"}
+                        alt={`ISARA Residence ${openRoomData?.title ?? "Room"} in Polonnaruwa - Photo ${activeIndex + 1}`}
                         fill
                         sizes="(min-width: 1024px) 44vw, 90vw"
                         className="object-cover object-center scale-100 transition-transform duration-700"
