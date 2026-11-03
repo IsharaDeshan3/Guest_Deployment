@@ -71,18 +71,13 @@ export default function LocationsPage() {
         <div className="absolute inset-0 bg-nature-50/36 mix-blend-multiply" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 pt-36 pb-10 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 pt-36 pb-16 relative z-10">
         <h1 className="font-serif text-3xl md:text-4xl text-white">Nearby Locations</h1>
         <p className="mt-2 text-sm text-white/90 max-w-2xl">
-          Click a pin to view photos and a short description. Use the Translate
-          button to switch between English and Sinhala.
+          Explore ancient ruins, sacred temples, and scenic landmarks around Polonnaruwa, with distances and visitor guides from ISARA Residence.
         </p>
 
-        <div className="mt-10">
-          <LocationsClient />
-        </div>
-
-        <section className="mt-14 rounded-3xl border border-white/20 bg-black/35 p-6 md:p-8 text-white backdrop-blur-md">
+        <section className="mt-10 rounded-3xl border border-white/20 bg-black/35 p-6 md:p-8 text-white backdrop-blur-md">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-nature-300 font-semibold">
@@ -162,6 +157,23 @@ export default function LocationsPage() {
             </Link>
             .
           </p>
+        </section>
+
+        <section id="map" className="mt-14">
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-[0.2em] text-nature-300 font-semibold">
+              Interactive Map
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl text-white mt-1">
+              Explore on the Map
+            </h2>
+            <p className="mt-2 text-sm text-white/90 max-w-2xl">
+              Click a pin to view photos and a short description. Use the Translate
+              button to switch between English and Sinhala.
+            </p>
+          </div>
+
+          <LocationsClient />
         </section>
       </div>
     </main>
