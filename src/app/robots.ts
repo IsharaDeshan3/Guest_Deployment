@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = "https://isararesidence.vercel.app";
+  const base = "https://www.isararesidence.lk";
 
   // Major AI models, retrieval agents, and search crawlers
   const aiUserAgents = [

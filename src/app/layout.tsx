@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://isararesidence.vercel.app"),
+  metadataBase: new URL("https://www.isararesidence.lk"),
 
   title: {
     default: "ISARA Residence | Guest House & Rooms in Polonnaruwa",
@@ -117,13 +117,13 @@ const lodgingJsonLd = {
   alternateName: "ISARA Residence Polonnaruwa",
 
   image: [
-    "https://isararesidence.vercel.app/about-sec-lnd.jpg",
-    "https://isararesidence.vercel.app/images/rooms/deluxe_double/1.jpg",
-    "https://isararesidence.vercel.app/images/rooms/family_room_1/1.jpg",
+    "https://www.isararesidence.lk/about-sec-lnd.jpg",
+    "https://www.isararesidence.lk/images/rooms/deluxe_double/1.jpg",
+    "https://www.isararesidence.lk/images/rooms/family_room_1/1.jpg",
   ],
 
-  "@id": "https://isararesidence.vercel.app/#lodging",
-  url: "https://isararesidence.vercel.app",
+  "@id": "https://www.isararesidence.lk/#lodging",
+  url: "https://www.isararesidence.lk",
   telephone: "+94706801910",
   email: "isararesidence@gmail.com",
   priceRange: "$$",

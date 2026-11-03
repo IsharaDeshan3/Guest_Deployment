@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { nearbyLocations, getLocationSlug } from "@/data/nearbyLocations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://isararesidence.vercel.app";
+  const base = "https://www.isararesidence.lk";
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [

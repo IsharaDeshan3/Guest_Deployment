@@ -39,7 +39,7 @@ const eventsJsonLd = {
   name: "ISARA Residence Event & Meeting Space",
   description:
     "Boutique event space for small parties, business meetings, and private gatherings with backyard views of Parakrama Samudra.",
-  url: "https://isararesidence.vercel.app/events",
+  url: "https://www.isararesidence.lk/events",
   telephone: "+94706801910",
   address: {
     "@type": "PostalAddress",

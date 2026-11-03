@@ -49,7 +49,7 @@ const locationsJsonLd = {
         longitude: location.lng,
       },
       image: location.images?.[0]
-        ? `https://isararesidence.vercel.app${location.images[0]}`
+        ? `https://www.isararesidence.lk${location.images[0]}`
         : undefined,
       description: location.description.en,
     },

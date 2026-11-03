@@ -60,10 +60,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     1
   )} km from ISARA Residence in Polonnaruwa. Explore its history, architectural significance, photos, and visiting guide.`;
 
-  const canonicalUrl = `https://isararesidence.vercel.app/locations/${getLocationSlug(location)}`;
+  const canonicalUrl = `https://www.isararesidence.lk/locations/${getLocationSlug(location)}`;
   const primaryImage = location.images?.[0]
-    ? `https://isararesidence.vercel.app${location.images[0]}`
-    : "https://isararesidence.vercel.app/location-bg.jpg";
+    ? `https://www.isararesidence.lk${location.images[0]}`
+    : "https://www.isararesidence.lk/location-bg.jpg";
 
   return {
     title: `${location.name} in Polonnaruwa | Visiting Guide & Stay Nearby | ISARA Residence`,
@@ -132,17 +132,17 @@ export default async function AttractionDetailPage({ params }: Props) {
     "@graph": [
       {
         "@type": "TouristAttraction",
-        "@id": `https://isararesidence.vercel.app/locations/${canonicalSlug}#attraction`,
+        "@id": `https://www.isararesidence.lk/locations/${canonicalSlug}#attraction`,
         name: location.name,
         description: location.description.en,
-        url: `https://isararesidence.vercel.app/locations/${canonicalSlug}`,
+        url: `https://www.isararesidence.lk/locations/${canonicalSlug}`,
         geo: {
           "@type": "GeoCoordinates",
           latitude: location.lat,
           longitude: location.lng,
         },
         image: location.images.map(
-          (img) => `https://isararesidence.vercel.app${img}`
+          (img) => `https://www.isararesidence.lk${img}`
         ),
         isAccessibleForFree: false,
         address: {
@@ -163,19 +163,19 @@ export default async function AttractionDetailPage({ params }: Props) {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://isararesidence.vercel.app/",
+            item: "https://www.isararesidence.lk/",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Nearby Attractions",
-            item: "https://isararesidence.vercel.app/locations",
+            item: "https://www.isararesidence.lk/locations",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: location.name,
-            item: `https://isararesidence.vercel.app/locations/${canonicalSlug}`,
+            item: `https://www.isararesidence.lk/locations/${canonicalSlug}`,
           },
         ],
       },
