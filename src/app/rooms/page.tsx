@@ -2,30 +2,30 @@ import type { Metadata } from "next";
 import RoomsClient from "./RoomsClient";
 
 export const metadata: Metadata = {
-  title: "Rooms In Polonnaruwa",
+  title: "Polonnaruwa Hotels & Rooms | ISARA Residence",
   description:
-    "Explore AC and family-friendly room options at ISARA Residence with private bathrooms, peaceful surroundings, and convenient access to Polonnaruwa attractions.",
+    "Find available rooms and compare options among Polonnaruwa hotels. ISARA Residence offers AC and family rooms with private bathrooms and garden lake views.",
   alternates: {
     canonical: "/rooms",
   },
   openGraph: {
-    title: "Rooms at ISARA Residence",
+    title: "Polonnaruwa Hotels & Rooms | ISARA Residence",
     description:
-      "Browse room types, amenities, and availability for your Polonnaruwa stay.",
+      "Browse rooms in Polonnaruwa, amenities, and direct accommodation booking for your stay.",
     url: "/rooms",
     images: [
       {
         url: "/images/rooms/deluxe_double/1.jpg",
         width: 1200,
         height: 630,
-        alt: "Deluxe double room at ISARA Residence",
+        alt: "Deluxe double room at ISARA Residence Polonnaruwa",
       },
     ],
   },
   twitter: {
-    title: "Rooms at ISARA Residence",
+    title: "Polonnaruwa Hotels & Rooms | ISARA Residence",
     description:
-      "Find the right room for your Polonnaruwa trip, from deluxe doubles to family stays.",
+      "Find the right room for your Polonnaruwa trip among top guest houses and hotels in Polonnaruwa.",
     images: ["/images/rooms/deluxe_double/1.jpg"],
   },
 };

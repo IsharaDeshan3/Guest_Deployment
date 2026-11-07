@@ -3,30 +3,30 @@ import LocationsClientPage from "./LocationsClientPage";
 import { nearbyLocations } from "@/data/nearbyLocations";
 
 export const metadata: Metadata = {
-  title: "Nearby Attractions In Polonnaruwa",
+  title: "Nearby Attractions in Polonnaruwa | Polonnaruwa Hotels Guide",
   description:
-    "Discover cultural landmarks near ISARA Residence, including Polonnaruwa's temples, museums, and archaeological highlights.",
+    "Discover historical attractions and cultural landmarks near ISARA Residence. Ideal guide for travelers staying at Polonnaruwa hotels, guest houses, and resorts.",
   alternates: {
     canonical: "/locations",
   },
   openGraph: {
-    title: "Nearby Attractions Around ISARA Residence",
+    title: "Nearby Attractions Around ISARA Residence | Polonnaruwa Hotels Guide",
     description:
-      "Plan your visit with top historical places near Polonnaruwa and view photos before you go.",
+      "Plan your historical visit near top places to stay in Polonnaruwa, from Gal Viharaya to Parakrama Samudra.",
     url: "/locations",
     images: [
       {
         url: "/location-bg.jpg",
         width: 1200,
         height: 630,
-        alt: "Historic locations around Polonnaruwa",
+        alt: "Historic locations around Polonnaruwa hotels",
       },
     ],
   },
   twitter: {
-    title: "Nearby Attractions Around ISARA Residence",
+    title: "Nearby Attractions Around ISARA Residence | Polonnaruwa Hotels",
     description:
-      "Explore Polonnaruwa landmarks within easy reach of your stay.",
+      "Explore Polonnaruwa landmarks within easy reach of your hotel or guest house.",
     images: ["/location-bg.jpg"],
   },
 };

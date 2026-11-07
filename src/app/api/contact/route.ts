@@ -56,7 +56,7 @@ export async function POST(request: Request) {
         {
           success: false,
           error:
-            "Too many inquiries received from this connection. Please wait a few minutes or contact us directly via WhatsApp at +94 70 680 1910.",
+            "Too many inquiries received from this connection. Please wait a few minutes or contact us directly via WhatsApp at +94 72 72 63 590.",
         },
         { status: 429 }
       );
@@ -280,7 +280,7 @@ export async function POST(request: Request) {
       {
         success: false,
         error:
-          "Unable to send your inquiry at this moment. Please reach out to us directly via WhatsApp at +94 70 680 1910.",
+          "Unable to send your inquiry at this moment. Please reach out to us directly via WhatsApp at +94 72 72 63 590.",
       },
       { status: 500 }
     );

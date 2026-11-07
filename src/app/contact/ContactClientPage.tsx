@@ -167,7 +167,7 @@ function ContactFormInner() {
       icon: Phone,
       label: "WhatsApp / Call",
       value: ISARA_WHATSAPP_DISPLAY,
-      href: "https://wa.me/94706801910",
+      href: "https://wa.me/94727263590",
       color: "from-nature-500 to-nature-700",
     },
     {
@@ -180,7 +180,8 @@ function ContactFormInner() {
     {
       icon: MapPin,
       label: "Location",
-      value: "Polonnaruwa, Sri Lanka (Roadside)",
+      value: "No 26, 25th Mile Post, Bendiwewa, Polonnaruwa, Sri Lanka",
+      subValue: "Roadside & lake view",
       href: "https://maps.app.goo.gl/SrRATsz9uvcrRsc66",
       color: "from-nature-500 to-nature-700",
     },
@@ -289,7 +290,7 @@ function ContactFormInner() {
           </h1>
 
           <p className="text-nature-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Inquire about room reservations, small parties, meetings, or general travel assistance in Polonnaruwa. We respond promptly via email and WhatsApp.
+            Inquire about room reservations, small parties, meetings, or seamless Polonnaruwa accommodation booking. We respond promptly via WhatsApp and email to help you compare properties and plan your stay.
           </p>
         </div>
 
@@ -551,7 +552,7 @@ function ContactFormInner() {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    placeholder="e.g. +94 70 680 1910"
+                    placeholder="e.g. +94 72 72 63 590"
                     className="w-full px-4 py-3 rounded-xl bg-nature-900/70 border border-nature-600/40 text-nature-50 text-sm placeholder-nature-500 focus:border-nature-400 focus:outline-none transition-all"
                     required
                   />
@@ -859,7 +860,7 @@ function ContactFormInner() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="https://wa.me/94706801910"
+              href="https://wa.me/94727263590"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider transition-all"

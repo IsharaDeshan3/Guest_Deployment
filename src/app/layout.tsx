@@ -25,22 +25,26 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.isararesidence.lk"),
 
   title: {
-    default: "ISARA Residence | Guest House & Rooms in Polonnaruwa",
-    template: "%s | ISARA Residence Polonnaruwa",
+    default: "ISARA Residence | Polonnaruwa Hotels, Guest House & Rooms",
+    template: "%s | ISARA Residence - Polonnaruwa Hotels",
   },
 
   description:
-    "Stay at ISARA Residence in Polonnaruwa, located near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
+    "Looking for top Polonnaruwa hotels and peaceful accommodation? Stay at ISARA Residence near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
 
   keywords: [
-    "guest house in polonnaruwa",
+    "polonnaruwa hotels",
+    "hotels in polonnaruwa",
+    "accommodation in polonnaruwa",
+    "places to stay in polonnaruwa",
+    "guest houses in polonnaruwa",
+    "rooms in polonnaruwa",
+    "best hotels in polonnaruwa",
+    "polonnaruwa accommodation booking",
     "isara residence",
     "hotels near parakrama samudraya",
     "budget stay polonnaruwa",
-    "rooms in polonnaruwa sri lanka",
-    "places to stay near gal viharaya",
     "budget accommodation polonnaruwa",
-    "polonnaruwa guest house",
     "family room polonnaruwa",
   ],
 
@@ -53,9 +57,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     url: "/",
-    title: "ISARA Residence | Guest House & Rooms in Polonnaruwa",
+    title: "ISARA Residence | Polonnaruwa Hotels, Guest House & Rooms",
     description:
-      "Stay at ISARA Residence in Polonnaruwa, located near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
+      "Looking for top Polonnaruwa hotels and peaceful accommodation? Stay at ISARA Residence near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
     images: [
       {
         url: "/opengraph-image.jpg",
@@ -74,9 +78,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "ISARA Residence | Guest House & Rooms in Polonnaruwa",
+    title: "ISARA Residence | Polonnaruwa Hotels, Guest House & Rooms",
     description:
-      "Stay at ISARA Residence in Polonnaruwa, located near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
+      "Looking for top Polonnaruwa hotels and peaceful accommodation? Stay at ISARA Residence near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
     images: ["/twitter-image.jpg"],
   },
 
@@ -112,9 +116,11 @@ export const viewport: Viewport = {
 
 const lodgingJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["BedAndBreakfast", "LodgingBusiness"],
+  "@type": ["Hotel", "BedAndBreakfast", "LodgingBusiness"],
   name: "ISARA Residence",
-  alternateName: "ISARA Residence Polonnaruwa",
+  alternateName: ["ISARA Residence Polonnaruwa", "ISARA Villa", "ISARA Hotels Polonnaruwa"],
+  description:
+    "A premier choice among Polonnaruwa hotels and guest houses, ISARA Residence is located along the Colombo-Batticaloa main road facing Parakrama Samudra lake. Features A/C family rooms, private bathrooms with hot water, lake views, and free Wi-Fi.",
 
   image: [
     "https://www.isararesidence.lk/about-sec-lnd.jpg",
@@ -124,7 +130,7 @@ const lodgingJsonLd = {
 
   "@id": "https://www.isararesidence.lk/#lodging",
   url: "https://www.isararesidence.lk",
-  telephone: "+94706801910",
+  telephone: ["+94706801910", "+94727263590"],
   email: "isararesidence@gmail.com",
   priceRange: "$$",
   currenciesAccepted: "LKR, USD",
@@ -132,7 +138,7 @@ const lodgingJsonLd = {
 
   address: {
     "@type": "PostalAddress",
-    streetAddress: "26th Mile Post, Bendiwewa",
+    streetAddress: "No 26, 25th Mile Post, Bendiwewa, Polonnaruwa, Sri Lanka",
     addressLocality: "Polonnaruwa",
     addressRegion: "North Central Province",
     postalCode: "51000",

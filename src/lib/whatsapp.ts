@@ -3,8 +3,9 @@
  * Business Number: +94 70 680 1910 -> 94706801910
  */
 
-export const ISARA_WHATSAPP_NUMBER = "94706801910";
-export const ISARA_WHATSAPP_DISPLAY = "+94 70 680 1910";
+export const ISARA_PHONE_NUMBER = "+94 70 680 1910";
+export const ISARA_WHATSAPP_NUMBER = "94727263590";
+export const ISARA_WHATSAPP_DISPLAY = "+94 72 72 63 590";
 export const ISARA_EMAIL = "isararesidence@gmail.com";
 
 export interface RoomInquiryParams {

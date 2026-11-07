@@ -19,15 +19,14 @@ export default function Footer() {
               Isara Residence
             </p>
             <h2 className="font-serif text-3xl text-nature-50">
-              Stay in the heart of Polonnaruwa
+              Your Peaceful Stay Among Polonnaruwa Hotels
             </h2>
             <p className="text-sm text-nature-200 leading-relaxed">
-              Sanctuary near the ancient city—wrapped in nature, crafted for
-              calm, and ready with warm Sri Lankan hospitality.
+              A serene guest house retreat near the ancient city and Parakrama Samudra—wrapped in nature, crafted for calm, and welcoming you with warm Sri Lankan hospitality.
             </p>
             <div className="flex items-center gap-3 text-sm text-nature-200/90">
               <MapPin className="h-4 w-4 text-nature-300" />
-              Polonnaruwa, Sri Lanka
+              No 26, 25th Mile Post, Bendiwewa, Polonnaruwa, Sri Lanka
             </div>
           </div>
 
@@ -44,13 +43,13 @@ export default function Footer() {
                 isararesidence@gmail.com
               </a>
               <a
-                href="https://wa.me/94706801910"
+                href="https://wa.me/94727263590"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm text-nature-200/90 transition hover:text-nature-50 min-h-11"
               >
                 <Phone className="h-4 w-4 text-nature-300 group-hover:text-nature-200" />
-                +94 70 680 1910
+                +94 72 72 63 590
               </a>
             </div>
 

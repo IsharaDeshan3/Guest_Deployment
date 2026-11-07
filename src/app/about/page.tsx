@@ -3,16 +3,16 @@ import Link from "next/link";
 import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
-  title: "About ISARA Residence",
+  title: "About Us | Top Choice Among Polonnaruwa Hotels",
   description:
-    "Learn the story behind ISARA Residence in Polonnaruwa, our hospitality values, and how we help guests explore Sri Lanka's ancient city with comfort.",
+    "Learn the story behind ISARA Residence, an inviting choice among Polonnaruwa hotels and guest houses, offering restful stays near the ancient city.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About ISARA Residence",
+    title: "About ISARA Residence | Polonnaruwa Hotels & Guest House",
     description:
-      "Discover our guest house story, values, and local host experience in Polonnaruwa.",
+      "Discover our guest house story, values, and why travelers consider ISARA Residence one of the most welcoming places to stay in Polonnaruwa.",
     url: "/about",
     images: [
       {
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "About ISARA Residence",
-    description: "Our story and hospitality philosophy in Polonnaruwa.",
+    title: "About ISARA Residence | Polonnaruwa Hotels",
+    description: "Our story and hospitality philosophy among hotels in Polonnaruwa.",
     images: ["/about-sec-lnd.jpg"],
   },
 };
@@ -39,10 +39,10 @@ export default function AboutPage() {
         <header className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.22em] text-nature-300">About ISARA Residence</p>
           <h1 className="mt-3 font-serif text-4xl md:text-5xl leading-tight">
-            A Calm Base For Exploring Ancient Polonnaruwa
+            Your Welcoming Sanctuary Among Polonnaruwa Hotels
           </h1>
           <p className="mt-5 text-base md:text-lg text-nature-200 leading-relaxed">
-            ISARA Residence was built to give travelers a restful, nature-wrapped stay close to the historical heart of Polonnaruwa. We combine practical comfort with local guidance so your trip feels easy, personal, and memorable.
+            When comparing Polonnaruwa hotels and boutique guest houses, ISARA Residence is dedicated to giving travelers a restful, nature-wrapped stay close to the historical heart of the kingdom. We combine practical comfort with local guidance so your trip feels easy, personal, and memorable.
           </p>
         </header>
 
@@ -50,21 +50,21 @@ export default function AboutPage() {
           <article className="rounded-2xl border border-nature-700/60 bg-nature-900/60 p-6">
             <h2 className="font-serif text-2xl">Our Story</h2>
             <p className="mt-3 text-nature-200 leading-relaxed">
-              What began as a family-hosted residence grew into a welcoming guest house for visitors seeking meaningful time in Sri Lanka&apos;s cultural triangle. Our team focuses on simple things done well: clean rooms, responsive support, and thoughtful local recommendations.
+              What began as a family-hosted residence grew into one of the most loved guest houses in Polonnaruwa for visitors seeking meaningful time in Sri Lanka&apos;s cultural triangle. Our team focuses on simple things done exceptionally well: pristine rooms, responsive support, and thoughtful local recommendations.
             </p>
           </article>
 
           <article className="rounded-2xl border border-nature-700/60 bg-nature-900/60 p-6">
             <h2 className="font-serif text-2xl">Hospitality Philosophy</h2>
             <p className="mt-3 text-nature-200 leading-relaxed">
-              We believe good stays are quiet, warm, and dependable. From check-in to departure, we help guests move smoothly between rest and discovery, whether you&apos;re here for heritage travel, family time, or a short stopover.
+              We believe the best hotels in Polonnaruwa should be quiet, warm, and dependable. From check-in to departure, we help guests move smoothly between rest and discovery, whether you&apos;re here for heritage travel, family vacation, or a scenic stopover.
             </p>
           </article>
 
           <article className="rounded-2xl border border-nature-700/60 bg-nature-900/60 p-6">
             <h2 className="font-serif text-2xl">Close To What Matters</h2>
             <p className="mt-3 text-nature-200 leading-relaxed">
-              Conveniently situated roadside for effortless travel access, ISARA Residence also features peaceful views of the historic Parakrama Samudra reservoir directly from our backyard. We are located just minutes from archaeological landmarks and temples.
+              Conveniently situated roadside for effortless travel access, ISARA Residence also features peaceful views of the historic Parakrama Samudra reservoir directly from our backyard. We are located just minutes from archaeological landmarks, museums, and sacred temples.
             </p>
           </article>
 
@@ -77,19 +77,19 @@ export default function AboutPage() {
         </div>
 
         <section className="mt-12 rounded-2xl border border-nature-600/60 bg-nature-900/50 p-6">
-          <h2 className="font-serif text-2xl">Plan Your Stay</h2>
+          <h2 className="font-serif text-2xl">Plan Your Polonnaruwa Accommodation Booking</h2>
           <p className="mt-3 text-nature-200 leading-relaxed max-w-3xl">
-            Ready to continue? Explore room options, discover nearby highlights, or contact us directly for availability and local travel help.
+            Ready to secure your stay? Explore our available rooms, discover nearby highlights, or contact our team directly for seamless booking assistance.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/rooms" className="rounded-lg bg-nature-100 px-4 py-2 text-sm font-medium text-nature-900 hover:bg-white">
-              View Rooms
+              View Rooms &amp; Availability
             </Link>
             <Link href="/locations" className="rounded-lg border border-nature-400 px-4 py-2 text-sm font-medium text-nature-100 hover:border-nature-200">
               Explore Nearby Locations
             </Link>
             <Link href="/contact" className="rounded-lg border border-nature-400 px-4 py-2 text-sm font-medium text-nature-100 hover:border-nature-200">
-              Contact ISARA Residence
+              Contact &amp; Book Directly
             </Link>
           </div>
         </section>

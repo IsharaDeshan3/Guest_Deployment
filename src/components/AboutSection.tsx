@@ -85,15 +85,15 @@ const AboutSection = () => {
                 </div>
                 
                 <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-nature-50 leading-tight">
-                  Explore Polonnaruwa Ancient City & <span className="italic text-nature-300">Parakrama Samudraya</span>
+                  A Relaxing Retreat Among <span className="italic text-nature-300">Polonnaruwa Hotels</span>
                 </h2>
 
                 <p className="text-nature-200 leading-relaxed text-base sm:text-lg max-w-prose">
-                  Nestled just minutes from the UNESCO World Heritage sites of Polonnaruwa, Isara Residence offers more than just a stay—it offers a pause. 
+                  Nestled just minutes from the UNESCO World Heritage sites and the serene Parakrama Samudra reservoir, ISARA Residence stands out among guest houses in Polonnaruwa by offering more than just a place to sleep—it offers genuine rest and warm island hospitality.
                 </p>
 
                 <p className="text-nature-300 leading-relaxed font-light text-sm sm:text-base max-w-prose">
-                  Wake up to the gentle rustling of palm leaves and the morning chorus of birds. Our residence is designed to be your sanctuary after a day of exploring the Ancient City, providing a seamless blend of Sri Lankan hospitality and contemporary comfort.
+                  Wake up to the gentle rustling of palm leaves and the morning chorus of birds. Designed for travelers comparing places to stay in Polonnaruwa, our residence is your quiet sanctuary after exploring the Ancient City, providing clean air-conditioned rooms, modern comforts, and personalized local recommendations.
                 </p>
 
                 {/* Signature / CTA */}

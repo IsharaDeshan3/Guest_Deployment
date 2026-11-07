@@ -40,10 +40,10 @@ const eventsJsonLd = {
   description:
     "Boutique event space for small parties, business meetings, and private gatherings with backyard views of Parakrama Samudra.",
   url: "https://www.isararesidence.lk/events",
-  telephone: "+94706801910",
+  telephone: ["+94706801910", "+94727263590"],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "26th Mile Post, Bendiwewa",
+    streetAddress: "No 26, 25th Mile Post, Bendiwewa, Polonnaruwa, Sri Lanka",
     addressLocality: "Polonnaruwa",
     postalCode: "51000",
     addressCountry: "LK",

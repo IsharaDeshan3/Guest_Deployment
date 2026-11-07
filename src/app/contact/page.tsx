@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import ContactClientPage from "./ContactClientPage";
 
 export const metadata: Metadata = {
-  title: "Contact ISARA Residence",
+  title: "Polonnaruwa Accommodation Booking & Contact | ISARA Residence",
   description:
-    "Get in touch with ISARA Residence in Polonnaruwa via WhatsApp, email, or map directions. Ask about rooms, check-in details, and local travel help.",
+    "Direct Polonnaruwa accommodation booking and inquiries. Connect with ISARA Residence via WhatsApp, phone, or contact form for room reservations near ancient city hotels in Polonnaruwa.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact ISARA Residence",
+    title: "Polonnaruwa Accommodation Booking & Contact | ISARA Residence",
     description:
-      "Message us directly for bookings, directions, and travel support in Polonnaruwa.",
+      "Message us directly for room bookings, travel directions, and hotel inquiries in Polonnaruwa.",
     url: "/contact",
     images: [
       {
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "Contact ISARA Residence",
-    description: "Reach ISARA Residence for bookings, directions, and support.",
+    title: "Polonnaruwa Accommodation Booking & Contact | ISARA Residence",
+    description: "Reach ISARA Residence for room bookings, directions, and hotel support in Polonnaruwa.",
     images: ["/polonnaruwa-stupas.jpg"],
   },
 };

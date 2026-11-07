@@ -6,9 +6,9 @@ import AboutSection from "@/components/AboutSection";
 import IsaraFacilities from "@/components/IsaraFacilities";
 
 export const metadata: Metadata = {
-  title: "ISARA Residence | Guest House & Rooms in Polonnaruwa near Parakrama Samudraya",
+  title: "ISARA Residence | Polonnaruwa Hotels, Guest House & Rooms",
   description:
-    "Stay at ISARA Residence in Polonnaruwa, located near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
+    "Comparing Polonnaruwa hotels and places to stay? Stay at ISARA Residence near the ancient city and Parakrama Samudra. Featuring air-conditioned rooms, garden views, hot water, and authentic Sri Lankan hospitality.",
   alternates: {
     canonical: "/",
   },
@@ -30,19 +30,19 @@ export default function Home() {
 
       <section className="bg-nature-900 text-nature-100 px-6 py-14">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-serif text-3xl md:text-4xl">Plan Your Polonnaruwa Stay</h2>
+          <h2 className="font-serif text-3xl md:text-4xl">Plan Your Polonnaruwa Hotel &amp; Guest House Stay</h2>
           <p className="mt-3 max-w-3xl text-nature-200">
-            Start with your room, map nearby landmarks, and contact us directly for travel support.
+            Comparing places to stay in Polonnaruwa? Explore our rooms, map nearby archaeological landmarks, and make your Polonnaruwa accommodation booking directly with ISARA Residence.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/rooms" className="rounded-lg bg-nature-100 px-4 py-2 text-sm font-medium text-nature-900 hover:bg-white">
-              Browse Rooms
+              Browse Rooms &amp; Availability
             </Link>
             <Link href="/locations" className="rounded-lg border border-nature-400 px-4 py-2 text-sm font-medium text-nature-100 hover:border-nature-200">
               Nearby Attractions
             </Link>
             <Link href="/contact" className="rounded-lg border border-nature-400 px-4 py-2 text-sm font-medium text-nature-100 hover:border-nature-200">
-              Contact ISARA Residence
+              Direct Booking &amp; Inquiries
             </Link>
           </div>
         </div>

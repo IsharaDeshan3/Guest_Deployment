@@ -105,11 +105,11 @@ export default function RoomsPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-xs uppercase tracking-widest text-nature-200 mb-3">
-                Polonnaruwa Accommodation
+                Polonnaruwa Hotels &amp; Guest House
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl">Rooms at ISARA Residence</h1>
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl">Rooms &amp; Accommodation in Polonnaruwa</h1>
               <p className="mt-3 max-w-2xl text-sm md:text-base text-white/90 leading-relaxed">
-                Choose from clean air-conditioned and non-AC rooms with private attached bathrooms, hot water, and peaceful garden surroundings near the ancient city and Parakrama Samudra.
+                When searching for Polonnaruwa hotels and comfortable rooms in Polonnaruwa, ISARA Residence offers clean air-conditioned and non-AC options with private bathrooms, hot water, and serene garden lake views near the ancient city.
               </p>
             </div>
             
